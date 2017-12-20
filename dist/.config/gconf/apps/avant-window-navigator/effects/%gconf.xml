@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="active_background_icon" mtime="1513329726" type="string">
+		<stringvalue></stringvalue>
+	</entry>
+	<entry name="reflection_alpha_multiplier" mtime="1513329726" type="float" value="0.30000001192092896"/>
+	<entry name="show_shadows" mtime="1513329726" type="bool" value="false"/>
+	<entry name="arrow_icon" mtime="1513329726" type="string">
+		<stringvalue>__awn_internal_arrow1</stringvalue>
+	</entry>
+	<entry name="icon_effect" mtime="1513604290" type="int" value="279620"/>
+	<entry name="active_rect_outline" mtime="1513777660" type="string">
+		<stringvalue>#95ffc4bbfbf70000</stringvalue>
+	</entry>
+	<entry name="active_rect_color" mtime="1513777660" type="string">
+		<stringvalue>#52529494e2e27f00</stringvalue>
+	</entry>
+	<entry name="dot_color" mtime="1513777660" type="string">
+		<stringvalue>#95ffc4bbfbf7ff00</stringvalue>
+	</entry>
+</gconf>

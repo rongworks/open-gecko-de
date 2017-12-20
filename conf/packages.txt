@@ -1,0 +1,32 @@
+# Display
+xorg-server
+xorg-server-common
+lightdm
+lightdm-gtk-greeter
+lightdm-gtk-greeter-settigs
+openbox
+obconf
+compton
+obkey
+obmenu3
+obmenu-generator
+oblogout
+polkit
+lxpolkit-git
+gksu
+
+# Utilities
+tilix
+beaver
+pamac
+tmux
+yaourt
+fish
+
+pcmanfm-gtk3
+lxappearance
+lxappearance-obconf-gtk3
+arc-gtk-theme
+arc-icon-theme
+conky
+conky-manager

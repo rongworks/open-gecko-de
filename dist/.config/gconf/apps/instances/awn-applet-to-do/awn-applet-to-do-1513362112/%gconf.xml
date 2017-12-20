@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="color_low" mtime="1513362113" schema="/schemas/apps/awn-applet-to-do/color_low"/>
+	<entry name="confirm_items" mtime="1513362113" schema="/schemas/apps/awn-applet-to-do/confirm_items"/>
+	<entry name="color_med_text" mtime="1513362113" schema="/schemas/apps/awn-applet-to-do/color_med_text"/>
+	<entry name="color_med" mtime="1513362113" schema="/schemas/apps/awn-applet-to-do/color_med"/>
+	<entry name="color" mtime="1513362113" schema="/schemas/apps/awn-applet-to-do/color"/>
+	<entry name="expanded" mtime="1513362113" schema="/schemas/apps/awn-applet-to-do/expanded"/>
+	<entry name="category" mtime="1513362113" schema="/schemas/apps/awn-applet-to-do/category"/>
+	<entry name="color_low_text" mtime="1513362113" schema="/schemas/apps/awn-applet-to-do/color_low_text"/>
+	<entry name="confirm_categories" mtime="1513362113" schema="/schemas/apps/awn-applet-to-do/confirm_categories"/>
+	<entry name="icon_type" mtime="1513362113" schema="/schemas/apps/awn-applet-to-do/icon_type"/>
+	<entry name="category_name" mtime="1513362113" schema="/schemas/apps/awn-applet-to-do/category_name"/>
+	<entry name="details" mtime="1513362113" schema="/schemas/apps/awn-applet-to-do/details"/>
+	<entry name="progress" mtime="1513362113" schema="/schemas/apps/awn-applet-to-do/progress"/>
+	<entry name="title" mtime="1513362113" schema="/schemas/apps/awn-applet-to-do/title"/>
+	<entry name="color_high" mtime="1513362113" schema="/schemas/apps/awn-applet-to-do/color_high"/>
+	<entry name="icon_opacity" mtime="1513362113" schema="/schemas/apps/awn-applet-to-do/icon_opacity"/>
+	<entry name="custom_width" mtime="1513362113" schema="/schemas/apps/awn-applet-to-do/custom_width"/>
+	<entry name="items" mtime="1513362113" schema="/schemas/apps/awn-applet-to-do/items"/>
+	<entry name="priority" mtime="1513362113" schema="/schemas/apps/awn-applet-to-do/priority"/>
+	<entry name="colors" mtime="1513362113" schema="/schemas/apps/awn-applet-to-do/colors"/>
+	<entry name="color_high_text" mtime="1513362113" schema="/schemas/apps/awn-applet-to-do/color_high_text"/>
+	<entry name="use_custom_width" mtime="1513362113" schema="/schemas/apps/awn-applet-to-do/use_custom_width"/>
+</gconf>

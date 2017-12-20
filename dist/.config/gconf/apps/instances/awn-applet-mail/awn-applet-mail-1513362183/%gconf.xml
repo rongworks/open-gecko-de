@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="timeout" mtime="1513362184" schema="/schemas/apps/awn-applet-mail/timeout"/>
+	<entry name="login-token" mtime="1513362184" schema="/schemas/apps/awn-applet-mail/login-token"/>
+	<entry name="email-client" mtime="1513362184" schema="/schemas/apps/awn-applet-mail/email-client"/>
+	<entry name="show-network-errors" mtime="1513362184" schema="/schemas/apps/awn-applet-mail/show-network-errors"/>
+	<entry name="theme" mtime="1513362184" schema="/schemas/apps/awn-applet-mail/theme"/>
+	<entry name="backend" mtime="1513362184" schema="/schemas/apps/awn-applet-mail/backend"/>
+	<entry name="unix-spool" mtime="1513362184" schema="/schemas/apps/awn-applet-mail/unix-spool"/>
+	<entry name="login-keyring-token" mtime="1513362184" schema="/schemas/apps/awn-applet-mail/login-keyring-token"/>
+</gconf>

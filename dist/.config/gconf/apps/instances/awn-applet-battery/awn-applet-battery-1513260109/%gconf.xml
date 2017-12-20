@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="warn-low-level" mtime="1513260109" schema="/schemas/apps/awn-applet-battery/warn-low-level"/>
+	<entry name="notify-high-level" mtime="1513260109" schema="/schemas/apps/awn-applet-battery/notify-high-level"/>
+	<entry name="level-notify-high" mtime="1513260109" schema="/schemas/apps/awn-applet-battery/level-notify-high"/>
+	<entry name="battery-udi" mtime="1513260109" schema="/schemas/apps/awn-applet-battery/battery-udi" type="string">
+		<stringvalue>/org/freedesktop/UPower/devices/battery_BAT0</stringvalue>
+	</entry>
+	<entry name="low-level-unit" mtime="1513260109" schema="/schemas/apps/awn-applet-battery/low-level-unit" type="string">
+		<stringvalue>Prozent</stringvalue>
+	</entry>
+	<entry name="theme" mtime="1513604197" schema="/schemas/apps/awn-applet-battery/theme" type="string">
+		<stringvalue>oxygen</stringvalue>
+	</entry>
+	<entry name="level-warn-low" mtime="1513260109" schema="/schemas/apps/awn-applet-battery/level-warn-low"/>
+</gconf>

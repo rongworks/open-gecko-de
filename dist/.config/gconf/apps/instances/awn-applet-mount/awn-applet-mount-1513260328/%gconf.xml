@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="execute-command" mtime="1513260329" schema="/schemas/apps/awn-applet-mount/execute-command"/>
+	<entry name="hidden-mountpoints" mtime="1513260329" schema="/schemas/apps/awn-applet-mount/hidden-mountpoints"/>
+</gconf>

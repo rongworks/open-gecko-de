@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="cities-timezones" mtime="1513260094" schema="/schemas/apps/awn-applet-cairo-clock/cities-timezones"/>
+	<entry name="show-weather" mtime="1513260094" schema="/schemas/apps/awn-applet-cairo-clock/show-weather"/>
+	<entry name="time-seconds" mtime="1513260094" schema="/schemas/apps/awn-applet-cairo-clock/time-seconds"/>
+	<entry name="custom-time-format" mtime="1513260094" schema="/schemas/apps/awn-applet-cairo-clock/custom-time-format"/>
+	<entry name="time-date" mtime="1513260094" schema="/schemas/apps/awn-applet-cairo-clock/time-date"/>
+	<entry name="time-24-format" mtime="1513260094" schema="/schemas/apps/awn-applet-cairo-clock/time-24-format"/>
+	<entry name="wind-speed-unit" mtime="1513260094" schema="/schemas/apps/awn-applet-cairo-clock/wind-speed-unit"/>
+	<entry name="temperature-unit" mtime="1513260094" schema="/schemas/apps/awn-applet-cairo-clock/temperature-unit"/>
+	<entry name="theme" mtime="1513260094" schema="/schemas/apps/awn-applet-cairo-clock/theme"/>
+	<entry name="show-seconds-hand" mtime="1513260094" schema="/schemas/apps/awn-applet-cairo-clock/show-seconds-hand"/>
+</gconf>

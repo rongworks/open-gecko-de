@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="warn-low-level" mtime="1513255439" schema="/schemas/apps/awn-applet-battery/warn-low-level"/>
+	<entry name="notify-high-level" mtime="1513255439" schema="/schemas/apps/awn-applet-battery/notify-high-level"/>
+	<entry name="level-notify-high" mtime="1513255439" schema="/schemas/apps/awn-applet-battery/level-notify-high"/>
+	<entry name="battery-udi" mtime="1513255439" schema="/schemas/apps/awn-applet-battery/battery-udi"/>
+	<entry name="low-level-unit" mtime="1513255439" schema="/schemas/apps/awn-applet-battery/low-level-unit"/>
+	<entry name="theme" mtime="1513255439" schema="/schemas/apps/awn-applet-battery/theme"/>
+	<entry name="level-warn-low" mtime="1513255439" schema="/schemas/apps/awn-applet-battery/level-warn-low"/>
+</gconf>
