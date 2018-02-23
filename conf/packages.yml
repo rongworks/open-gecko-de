@@ -1,0 +1,193 @@
+packages:
+  xorg-server:
+    command: pacman -S
+    category: system
+    url: ''
+    info: "ladida"
+    selected: true
+  yaourt:
+      command: pacman -Sy
+      category: system
+      url: ''
+      info: "AUR Community repository"
+      selected: true
+  xorg-server-common:
+      command: pacman -S
+      category: system
+      url: ''
+      info: "ladida"
+      selected: true
+  lightdm:
+      command: pacman -S
+      category: window-manager
+      url: ''
+      info: "ladida"
+      selected: true
+  lightdm-gtk-greeter:
+      command: pacman -S
+      category: window-manager
+      url: ''
+      info: "ladida"
+      selected: true
+  openbox:
+      command: pacman -S
+      category: system
+      url: ''
+      info: "ladida"
+      selected: true
+  compton:
+      command: pacman -S
+      category: system
+      url: ''
+      info: "ladida"
+      selected: true
+  arc-gtk-theme:
+      command: pacman -S
+      category: system
+      url: ''
+      info: "ladida"
+      selected: true
+  arc-icon-theme:
+      command: pacman -S
+      category: system
+      url: ''
+      info: "ladida"
+      selected: true
+  obkey:
+      command: pacman -S
+      category: system
+      url: ''
+      info: "ladida"
+      selected: true
+  obmenu3:
+      command: pacman -S
+      category: system
+      url: ''
+      info: "ladida"
+      selected: true
+  obmenu-generator:
+      command: pacman -S
+      category: system
+      url: ''
+      info: "ladida"
+      selected: true
+  oblogout:
+      command: pacman -S
+      category: system
+      url: ''
+      info: "ladida"
+      selected: true
+  obconf:
+      command: pacman -S
+      category: system
+      url: ''
+      info: "ladida"
+      selected: true
+  lightdm-gtk-greeter-settigs:
+      command: pacman -S
+      category: system
+      url: ''
+      info: "ladida"
+      selected: true
+  lxappearance:
+      command: pacman -S
+      category: system
+      url: ''
+      info: "ladida"
+      selected: true
+  lxappearance-obconf-gtk3:
+      command: pacman -S
+      category: system
+      url: ''
+      info: "ladida"
+      selected: true
+  polkit:
+      command: pacman -S
+      category: system
+      url: ''
+      info: "ladida"
+      selected: true
+  lxpolkit-git:
+      command: pacman -S
+      category: system
+      url: ''
+      info: "ladida"
+      selected: true
+  gksu:
+      command: pacman -S
+      category: system
+      url: ''
+      info: "ladida"
+      selected: true
+  tilix:
+      command: pacman -S
+      category: apps
+      url: ''
+      info: "ladida"
+      selected: true
+  beaver:
+      command: pacman -S
+      category: apps
+      url: ''
+      info: "ladida"
+      selected: true
+  pamac:
+    command: pacman -S
+    category: apps
+    url: ''
+    info: "ladida"
+    selected: true
+  tmux:
+    command: pacman -S
+    category: apps
+    url: ''
+    info: "ladida"
+    selected: true
+  fish:
+    command: pacman -S
+    category: apps
+    url: ''
+    info: "ladida"
+    selected: true
+  pcmanfm-gtk3:
+    command: pacman -S
+    category: apps
+    url: ''
+    info: "ladida"
+    selected: true
+  conky:
+    command: pacman -S
+    category: widgets
+    url: ''
+    info: "ladida"
+    selected: true
+  conky-manager:
+    command: pacman -S
+    category: widgets
+    url: ''
+    info: "ladida"
+    selected: true
+  rofi:
+      command: pacman -S
+      category: widgets
+      url: ''
+      info: "ladida"
+      selected: true
+  avant-window-navigator:
+      command: yaourt -S
+      category: window-manager
+      url: ''
+      info: "ladida"
+      selected: true
+  awn-extras-applets:
+      command: yaourt -S
+      category: widgets
+      url: ''
+      info: "ladida"
+      selected: true
+  ulauncher-git:
+      command: yaourt -S
+      category: widgets
+      url: ''
+      info: "ladida"
+      selected: true
