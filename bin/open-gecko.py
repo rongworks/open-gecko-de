@@ -46,7 +46,7 @@ with open(pkg_file, 'r') as stream:
         subprocess.run(exe)
         print(os.environ['SUDO_USER'])
       shutil.copytree('../dist/.config', '/home/'+user+'/.config')
-    else
+    else:
       for exe in executives:
         print('==== DRY-RUN ====')
         print(exe)
