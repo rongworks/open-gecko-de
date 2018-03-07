@@ -37,11 +37,16 @@ with open(pkg_file, 'r') as stream:
     for repo_name in data_loaded.get('repositories'):
       repo = data_loaded.get('repositories').get(repo_name)
       cmd = repo['command']
-      packages = repositories[repo_name]
-      executives.append(cmd+' '+packages)
-
-    for exe in executives:
-        #subprocess.run(exe)
+      packages = repositories[repo_name].split(' ')
+      for package in packages:
+        executives.append(cmd+' '+package)
+    do_install = input('Install packages? (yes or no)')
+    if  do_install == 'y' or do_install == 'yes':
+      for exe in executives:
+        subprocess.run(exe)
+        print(os.environ['SUDO_USER'])
+      shutil.copytree('../dist/.config', '/home/'+user+'/.config')
+    else
+      for exe in executives:
+        print('==== DRY-RUN ====')
         print(exe)
-        #print(os.environ['SUDO_USER'])
-#shutil.copytree(../dist/.config, ~/.config)
