@@ -1,193 +1,202 @@
 packages:
   xorg-server:
-    command: pacman -S
+    repository: pacman
     category: system
     url: ''
     info: "ladida"
     selected: true
   yaourt:
-      command: pacman -Sy
+      repository: pacman -Sy
       category: system
       url: ''
       info: "AUR Community repository"
       selected: true
   xorg-server-common:
-      command: pacman -S
+      repository: pacman
       category: system
       url: ''
       info: "ladida"
       selected: true
   lightdm:
-      command: pacman -S
+      repository: pacman
       category: window-manager
       url: ''
       info: "ladida"
       selected: true
   lightdm-gtk-greeter:
-      command: pacman -S
+      repository: pacman
       category: window-manager
       url: ''
       info: "ladida"
       selected: true
   openbox:
-      command: pacman -S
+      repository: pacman
       category: system
       url: ''
       info: "ladida"
       selected: true
   compton:
-      command: pacman -S
+      repository: pacman
       category: system
       url: ''
       info: "ladida"
       selected: true
   arc-gtk-theme:
-      command: pacman -S
+      repository: pacman
       category: system
       url: ''
       info: "ladida"
       selected: true
   arc-icon-theme:
-      command: pacman -S
+      repository: pacman
       category: system
       url: ''
       info: "ladida"
       selected: true
   obkey:
-      command: pacman -S
+      repository: pacman
       category: system
       url: ''
       info: "ladida"
       selected: true
   obmenu3:
-      command: pacman -S
+      repository: pacman
       category: system
       url: ''
       info: "ladida"
       selected: true
   obmenu-generator:
-      command: pacman -S
+      repository: pacman
       category: system
       url: ''
       info: "ladida"
       selected: true
   oblogout:
-      command: pacman -S
+      repository: pacman
       category: system
       url: ''
       info: "ladida"
       selected: true
   obconf:
-      command: pacman -S
+      repository: pacman
       category: system
       url: ''
       info: "ladida"
       selected: true
   lightdm-gtk-greeter-settigs:
-      command: pacman -S
+      repository: pacman
       category: system
       url: ''
       info: "ladida"
       selected: true
   lxappearance:
-      command: pacman -S
+      repository: pacman
       category: system
       url: ''
       info: "ladida"
       selected: true
   lxappearance-obconf-gtk3:
-      command: pacman -S
+      repository: pacman
       category: system
       url: ''
       info: "ladida"
       selected: true
   polkit:
-      command: pacman -S
+      repository: pacman
       category: system
       url: ''
       info: "ladida"
       selected: true
   lxpolkit-git:
-      command: pacman -S
+      repository: pacman
       category: system
       url: ''
       info: "ladida"
       selected: true
   gksu:
-      command: pacman -S
+      repository: pacman
       category: system
       url: ''
       info: "ladida"
       selected: true
   tilix:
-      command: pacman -S
+      repository: pacman
       category: apps
       url: ''
       info: "ladida"
       selected: true
   beaver:
-      command: pacman -S
+      repository: pacman
       category: apps
       url: ''
       info: "ladida"
       selected: true
   pamac:
-    command: pacman -S
+    repository: pacman
     category: apps
     url: ''
     info: "ladida"
     selected: true
   tmux:
-    command: pacman -S
+    repository: pacman
     category: apps
     url: ''
     info: "ladida"
     selected: true
   fish:
-    command: pacman -S
+    repository: pacman
     category: apps
     url: ''
     info: "ladida"
     selected: true
   pcmanfm-gtk3:
-    command: pacman -S
+    repository: pacman
     category: apps
     url: ''
     info: "ladida"
     selected: true
   conky:
-    command: pacman -S
+    repository: pacman
     category: widgets
     url: ''
     info: "ladida"
     selected: true
   conky-manager:
-    command: pacman -S
+    repository: pacman
     category: widgets
     url: ''
     info: "ladida"
     selected: true
   rofi:
-      command: pacman -S
+      repository: pacman
       category: widgets
       url: ''
       info: "ladida"
       selected: true
   avant-window-navigator:
-      command: yaourt -S
+      repository: yaourt
       category: window-manager
       url: ''
       info: "ladida"
       selected: true
   awn-extras-applets:
-      command: yaourt -S
+      repository: yaourt
       category: widgets
       url: ''
       info: "ladida"
       selected: true
   ulauncher-git:
-      command: yaourt -S
+      repository: yaourt
       category: widgets
       url: ''
       info: "ladida"
       selected: true
+repositories:
+  pacman:
+#    filepath: ./pacman.txt
+    command: pacman -Sy --no-confirm
+    active: true
+  yaourt:
+#    filepath: ./yaourt.txt
+    command: yaourt -S --no-confirm
+    active: true
