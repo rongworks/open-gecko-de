@@ -194,9 +194,9 @@ packages:
 repositories:
   pacman:
 #    filepath: ./pacman.txt
-    command: pacman -Sy --no-confirm
+    command: pacman -Sy --noconfirm
     active: true
   yaourt:
 #    filepath: ./yaourt.txt
-    command: yaourt -S --no-confirm
+    command: yaourt -S --noconfirm
     active: true
