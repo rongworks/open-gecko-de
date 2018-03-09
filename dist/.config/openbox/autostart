@@ -18,7 +18,8 @@
 
 compton &
 pcmanfm --desktop &
-avant-window-navigator --startup &
-ulauncher &
+tint2 &
+#avant-window-navigator --startup &
+synapse &
 sh .conky/conky-startup.sh &
 tilix &

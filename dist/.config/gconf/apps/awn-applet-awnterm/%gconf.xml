@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <gconf>
-	<entry name="opacity" mtime="1513777660" type="float" value="0.89999997615814209"/>
-	<entry name="hide_on_unfocus" mtime="1513777660" type="bool" value="true"/>
-	<entry name="global_hotkey" mtime="1513777660" type="string">
+	<entry name="opacity" mtime="1520539945" type="float" value="0.89999997615814209"/>
+	<entry name="hide_on_unfocus" mtime="1520539945" type="bool" value="true"/>
+	<entry name="global_hotkey" mtime="1520539945" type="string">
 		<stringvalue></stringvalue>
 	</entry>
-	<entry name="bg_img" mtime="1513777660" type="string">
+	<entry name="bg_img" mtime="1520539945" type="string">
 		<stringvalue>/home/mathias/Pictures/wallls.com_96341.jpg</stringvalue>
 	</entry>
-	<entry name="main_terminal" mtime="1513777660" type="string">
+	<entry name="main_terminal" mtime="1520539945" type="string">
 		<stringvalue>tilix</stringvalue>
 	</entry>
 </gconf>

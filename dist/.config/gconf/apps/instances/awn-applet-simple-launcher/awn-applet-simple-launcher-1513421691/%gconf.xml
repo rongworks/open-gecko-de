@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <gconf>
-	<entry name="launcher_list" mtime="1513777660" schema="/schemas/apps/awn-applet-simple-launcher/launcher_list" type="list" ltype="string">
+	<entry name="launcher_list" mtime="1520539944" schema="/schemas/apps/awn-applet-simple-launcher/launcher_list" type="list" ltype="string">
 		<li type="string">
 			<stringvalue>/home/mathias/.config/awn/applets/simple-launcher/launcher-1.desktop</stringvalue>
 		</li>

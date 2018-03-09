@@ -6,7 +6,7 @@ packages:
     info: "ladida"
     selected: true
   yaourt:
-      repository: pacman -Sy
+      repository: pacman
       category: system
       url: ''
       info: "AUR Community repository"
@@ -168,29 +168,41 @@ packages:
     info: "ladida"
     selected: true
   rofi:
-      repository: pacman
-      category: widgets
-      url: ''
-      info: "ladida"
-      selected: true
+    repository: pacman
+    category: widgets
+    url: ''
+    info: "ladida"
+    selected: true
   avant-window-navigator:
-      repository: yaourt
-      category: window-manager
-      url: ''
-      info: "ladida"
-      selected: true
+    repository: yaourt
+    category: window-manager
+    url: ''
+    info: "ladida"
+    selected: false
   awn-extras-applets:
       repository: yaourt
       category: widgets
       url: ''
       info: "ladida"
-      selected: true
+      selected: false
   ulauncher-git:
       repository: yaourt
       category: widgets
       url: ''
       info: "ladida"
-      selected: true
+      selected: false
+  synapse:
+    repository: pacman
+    category: launcher
+    url: ''
+    info: "ladida"
+    selected: true
+  tint2:
+    repository: pacman
+    category: panel
+    url: ''
+    info: "ladida"
+    selected: true
 repositories:
   pacman:
 #    filepath: ./pacman.txt
