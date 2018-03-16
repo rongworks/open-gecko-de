@@ -206,9 +206,9 @@ packages:
 repositories:
   pacman:
 #    filepath: ./pacman.txt
-    command: pacman -Sy --noconfirm
+    command: sudo pacman -Sy --noconfirm --needed
     active: true
   yaourt:
 #    filepath: ./yaourt.txt
-    command: yaourt -S --noconfirm
+    command: yaourt -S --noconfirm --needed
     active: true

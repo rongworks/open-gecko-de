@@ -21,13 +21,8 @@ def read_packages(data):
             repositories[repo] = name
 
 # Main
-if os.getuid() != 0:
-    print('must be run as root')
-    sys.exit(1)
-user = os.environ.get('SUDO_USER','')
-if user == '':
-  user = input("No SUDO_USER defined. Please enter your login: ")
-  print('Ok, '+user)
+user_home = os.environ.get('HOME','')
+
 with open(pkg_file, 'r') as stream:
     data_loaded = yaml.load(stream)
     #print(data_loaded)
@@ -44,9 +39,12 @@ with open(pkg_file, 'r') as stream:
     if  do_install == 'y' or do_install == 'yes':
       for exe in executives:
         subprocess.run(exe)
-        print(os.environ['SUDO_USER'])
-      shutil.copytree('../dist/.config', '/home/'+user+'/.config')
+      # Copy config files .. TODO: copy only used config
+      if user_home == '':
+        user_home = '/home/'+input('User HOME undefined? Please enter username')
+      shutil.copy('../dist/.config', user_home+'/.config')
     else:
       for exe in executives:
         print('==== DRY-RUN ====')
         print(exe)
+      print('config would be copied to: '+user_home)
