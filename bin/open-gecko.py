@@ -45,6 +45,7 @@ with open(pkg_file, 'r') as stream:
       if user_home == '':
         user_home = '/home/'+input('User HOME undefined? Please enter username')
       subprocess.call('cp -r ../dist/.config/* '+user_home+'/.config',shell=True)
+      subprocess.run(['sudo','cp','../dist/open-gecko.desktop','/usr/share/xsessions/open-gecko.desktop'])
     else:
       for exe in executives:
         print('==== DRY-RUN ====')
