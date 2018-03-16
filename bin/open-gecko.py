@@ -15,10 +15,11 @@ def read_packages(data):
         pkg = data.get('packages').get(package)
         repo = pkg['repository']
         name = package
-        if repo in repositories and pkg['selected'] == True:
-            repositories[repo] += ' '+name
-        else:
-            repositories[repo] = name
+        if pkg['selected'] == True:
+            if repo in repositories:
+                repositories[repo] += ' '+name
+            else:
+                repositories[repo] = name
 
 # Main
 user_home = os.environ.get('HOME','')
@@ -32,13 +33,14 @@ with open(pkg_file, 'r') as stream:
     for repo_name in data_loaded.get('repositories'):
       repo = data_loaded.get('repositories').get(repo_name)
       cmd = repo['command']
-      packages = repositories[repo_name].split(' ')
-      for package in packages:
-        executives.append(cmd+' '+package)
+      if repo_name in repositories:
+          packages = repositories[repo_name].split(' ')
+          for package in packages:
+              executives.append(cmd+' '+package)
     do_install = input('Install packages? (yes or no)')
     if  do_install == 'y' or do_install == 'yes':
       for exe in executives:
-        subprocess.run(exe)
+        subprocess.run(exe.split(' '))
       # Copy config files .. TODO: copy only used config
       if user_home == '':
         user_home = '/home/'+input('User HOME undefined? Please enter username')
