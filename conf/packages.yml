@@ -83,7 +83,7 @@ packages:
       url: ''
       info: "ladida"
       selected: true
-  lightdm-gtk-greeter-settigs:
+  lightdm-gtk-greeter-settings:
       repository: pacman
       category: system
       url: ''
