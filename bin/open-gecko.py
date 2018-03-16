@@ -44,7 +44,7 @@ with open(pkg_file, 'r') as stream:
       # Copy config files .. TODO: copy only used config
       if user_home == '':
         user_home = '/home/'+input('User HOME undefined? Please enter username')
-      shutil.copy('../dist/.config', user_home+'/.config')
+      subprocess.call('cp -r ../dist/.config '+user_home+'/.config',shell=True)
     else:
       for exe in executives:
         print('==== DRY-RUN ====')
