@@ -2,86 +2,96 @@ packages:
   xorg-server:
     repository: pacman
     category: system
-    url: ''
-    info: "ladida"
+    url: 'http://xorg.freedesktop.org'
+    info: "Xorg X server"
     selected: true
   yaourt:
       repository: pacman
       category: system
-      url: ''
-      info: "AUR Community repository"
+      url: 'https://github.com/archlinuxfr/yaourt'
+      info: "A pacman wrapper with extended features and AUR support"
       selected: true
   xorg-server-common:
       repository: pacman
       category: system
-      url: ''
-      info: "ladida"
+      url: 'http://xorg.freedesktop.org'
+      info: "Xorg server common files"
       selected: true
   lightdm:
       repository: pacman
-      category: window-manager
-      url: ''
-      info: "ladida"
+      category: system
+      url: 'https://www.freedesktop.org/wiki/Software/LightDM/'
+      info: "Lightweight Siplay Manager"
       selected: true
   lightdm-gtk-greeter:
       repository: pacman
-      category: window-manager
+      category: system
       url: ''
-      info: "ladida"
+      info: "Greeter for LightDM"
       selected: true
   openbox:
       repository: pacman
       category: system
-      url: ''
-      info: "ladida"
+      url: 'https://openbox.org'
+      info: "Openbox window manager"
+      config: '$HOME/.config/openbox'
       selected: true
   compton:
       repository: pacman
       category: system
-      url: ''
-      info: "ladida"
+      url: 'https://github.com/chjj/compton'
+      info: "X compositor"
+      config: '$HOME/.config/compton.conf'
       selected: true
   arc-gtk-theme:
       repository: pacman
       category: system
       url: ''
-      info: "ladida"
+      info: "Arc Theme"
       selected: true
   arc-icon-theme:
       repository: pacman
       category: system
       url: ''
-      info: "ladida"
+      info: "Arc icons"
       selected: true
   obkey:
       repository: pacman
       category: system
       url: ''
-      info: "ladida"
+      info: "Graphical Shortcut Manager"
+      selected: true
+  gtk2-perl:
+      repository: pacman
+      category: system
+      url: ''
+      info: ""
       selected: true
   obmenu3:
-      repository: pacman
+      repository: yaourt
       category: system
       url: ''
-      info: "ladida"
+      info: "Openbox Menu Editor"
       selected: true
   obmenu-generator:
-      repository: pacman
+      repository: yaourt
       category: system
       url: ''
-      info: "ladida"
+      info: "Menu generator for Openbox"
+      config: '$HOME/.config/obmenu-generator'
       selected: true
   oblogout:
       repository: pacman
       category: system
       url: ''
-      info: "ladida"
+      info: "Logout function for Openbox"
+      config: '$HOME/.config/themes'
       selected: true
   obconf:
       repository: pacman
       category: system
       url: ''
-      info: "ladida"
+      info: "Graphical Configuration for Openbox"
       selected: true
   lightdm-gtk-greeter-settings:
       repository: pacman
@@ -94,12 +104,14 @@ packages:
       category: system
       url: ''
       info: "ladida"
+      config: '$HOME/.config/gtk-2.0'
       selected: true
   lxappearance-obconf-gtk3:
       repository: pacman
       category: system
       url: ''
       info: "ladida"
+      config: '$HOME/.config/gtk-3.0'
       selected: true
   polkit:
       repository: pacman
@@ -108,7 +120,7 @@ packages:
       info: "ladida"
       selected: true
   lxpolkit-git:
-      repository: pacman
+      repository: yaourt
       category: system
       url: ''
       info: "ladida"
@@ -131,11 +143,18 @@ packages:
       url: ''
       info: "ladida"
       selected: true
+  keepassxc:
+    repository: pacman
+    category: security
+    url: 'https://keepassxc.org/'
+    info: 'Cross-platform community-driven port of Keepass password manager'
+    selected: true
+    config: '$HOME/.config/keepassxc'
   pamac:
     repository: pacman
     category: apps
     url: ''
-    info: "ladida"
+    info: "Graphical package Manager"
     selected: true
   tmux:
     repository: pacman
@@ -151,57 +170,84 @@ packages:
     selected: true
   pcmanfm-gtk3:
     repository: pacman
-    category: apps
+    category: system
     url: ''
     info: "ladida"
+    config: '$HOME/.config/pcmanfm'
     selected: true
   conky:
     repository: pacman
-    category: widgets
+    category: apps
     url: ''
+    config: '$HOME/.conky'
     info: "ladida"
     selected: true
   conky-manager:
     repository: pacman
-    category: widgets
+    category: apps
     url: ''
     info: "ladida"
+    selected: true
+  networkmanager:
+    repository: pacman
+    category: system
+    url: ''
+    info: "Network manager and user Applications"
+    selected: true
+  network-manager-applet:
+    repository: pacman
+    category: widgets
+    url: ''
+    info: "Applet for managing networks"
     selected: true
   rofi:
     repository: pacman
-    category: widgets
+    category: system
     url: ''
-    info: "ladida"
+    info: "A window switcher, application launcher and dmenu replacement"
     selected: true
-  avant-window-navigator:
-    repository: yaourt
-    category: window-manager
-    url: ''
-    info: "ladida"
-    selected: false
-  awn-extras-applets:
-      repository: yaourt
-      category: widgets
-      url: ''
-      info: "ladida"
-      selected: false
-  ulauncher-git:
-      repository: yaourt
-      category: widgets
-      url: ''
-      info: "ladida"
-      selected: false
   synapse:
     repository: pacman
-    category: launcher
+    category: system
     url: ''
-    info: "ladida"
+    info: "AppFinder and Launcher"
+    config: '$HOME/.config/synapse'
     selected: true
   tint2:
     repository: pacman
-    category: panel
+    category: system
     url: ''
-    info: "ladida"
+    info: "Leightweight Panel"
+    selected: true
+  jgmenu:
+    repository: pacman
+    category: system
+    url: ''
+    info: "Small X11 menu intended to be used with openbox and tint2"
+    selected: true
+  calcurse:
+    repository: pacman
+    category: core
+    url: 'http://calcurse.org/'
+    info: 'Terminal calendar app'
+    selected: true
+  viewnior:
+    repository: pacman
+    category: apps
+    url: ''
+    info: "Leightweight Image viewer"
+    selected: true
+  xdotool:
+    repository: pacman
+    category: system
+    url: ''
+    info: "Commandline X11 Automation Tool"
+    selected: true
+  parcellite:
+    repository: pacman
+    category: apps
+    url: ''
+    info: "Leightweight Clipboard Manager"
     selected: true
 repositories:
   pacman:
