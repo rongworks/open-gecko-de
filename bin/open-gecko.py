@@ -185,6 +185,7 @@ elif command == 'categories':
     list_categories()
 elif command == 'install':
     install()
+    subprocess.call(['sudo','cp','../dist/open-gecko.desktop','/usr/share/xsessions/open-gecko.desktop'])
 else:
    print("Wrong arguments")
    info()
