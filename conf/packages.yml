@@ -218,6 +218,7 @@ packages:
     category: system
     url: ''
     info: "Leightweight Panel"
+    config: '$HOME/.config/tint2'
     selected: true
   jgmenu:
     repository: pacman
