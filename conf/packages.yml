@@ -34,14 +34,14 @@ packages:
       category: system
       url: 'https://openbox.org'
       info: "Openbox window manager"
-      config: '$HOME/.config/openbox'
+      config: '~/.config/openbox'
       selected: true
   compton:
       repository: pacman
       category: system
       url: 'https://github.com/chjj/compton'
       info: "X compositor"
-      config: '$HOME/.config/compton.conf'
+      config: '~/.config'
       selected: true
   arc-gtk-theme:
       repository: pacman
@@ -78,14 +78,14 @@ packages:
       category: system
       url: ''
       info: "Menu generator for Openbox"
-      config: '$HOME/.config/obmenu-generator'
+      config: '~/.config/obmenu-generator'
       selected: true
   oblogout:
       repository: pacman
       category: system
       url: ''
       info: "Logout function for Openbox"
-      config: '$HOME/.config/themes'
+      config: '~/.config/themes'
       selected: true
   obconf:
       repository: pacman
@@ -104,14 +104,14 @@ packages:
       category: system
       url: ''
       info: "ladida"
-      config: '$HOME/.config/gtk-2.0'
+      config: '~/.config/gtk-2.0'
       selected: true
   lxappearance-obconf-gtk3:
       repository: pacman
       category: system
       url: ''
       info: "ladida"
-      config: '$HOME/.config/gtk-3.0'
+      config: '~/.config/gtk-3.0'
       selected: true
   polkit:
       repository: pacman
@@ -149,7 +149,7 @@ packages:
     url: 'https://keepassxc.org/'
     info: 'Cross-platform community-driven port of Keepass password manager'
     selected: true
-    config: '$HOME/.config/keepassxc'
+    config: '~/.config/keepassxc'
   pamac:
     repository: pacman
     category: apps
@@ -173,13 +173,13 @@ packages:
     category: system
     url: ''
     info: "ladida"
-    config: '$HOME/.config/pcmanfm'
+    config: '~/.config/pcmanfm'
     selected: true
   conky:
     repository: pacman
     category: apps
     url: ''
-    config: '$HOME/.conky'
+    config: '~/.conky'
     info: "ladida"
     selected: true
   conky-manager:
@@ -211,14 +211,14 @@ packages:
     category: system
     url: ''
     info: "AppFinder and Launcher"
-    config: '$HOME/.config/synapse'
+    config: '~/.config/synapse'
     selected: true
   tint2:
     repository: pacman
     category: system
     url: ''
     info: "Leightweight Panel"
-    config: '$HOME/.config/tint2'
+    config: '~/.config/tint2'
     selected: true
   jgmenu:
     repository: pacman

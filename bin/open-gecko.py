@@ -20,15 +20,13 @@ class Package:
 
   def install(self,dry=False):
       cmd = self.repository.command +' '+ self.name
-      config_cmd = 'cp -r ../dist/'+self.name+'/* '+self.config
+      config_cmd = 'cp -r ../dist/packages/'+self.name+' '+self.config
       if self.selected:
           print(cmd)
-          #subprocess.call(cmd.split(' '))
+          subprocess.call(cmd.split(' '))
           if len(self.config) > 0:
               print(config_cmd)
-              #subprocess.call(config_cmd.split(' '))
-
-          #TODO: execute and copy config
+              subprocess.call(config_cmd.split(' '))
 
   def as_string(self):
       return ", ".join((self.name,self.category,self.info))
