@@ -20,13 +20,31 @@ class Package:
 
   def install(self,dry=False):
       cmd = self.repository.command +' '+ self.name
-      config_cmd = 'cp -r ../dist/packages/'+self.name+' '+self.config
       if self.selected:
-          print(cmd)
-          subprocess.call(cmd.split(' '))
-          if len(self.config) > 0:
-              print(config_cmd)
-              subprocess.call(config_cmd.split(' '))
+          if dry:
+            print(cmd)
+          else:
+            subprocess.call(cmd.split(' '))
+          self.copy_config(dry)
+
+
+
+
+  def copy_config(self,dry=False):
+      if len(self.config) <= 0:
+          return
+      user_home = os.environ.get('HOME','')
+      conf_path = self.config.replace('~',user_home,1).replace('$HOME',user_home)
+      config_cmd = 'cp -r ../dist/packages/'+self.name+' '+conf_path
+      if dry:
+        print(config_cmd)
+      try:
+        os.makedirs(conf_path)
+      except OSError:
+          if not os.path.isdir(conf_path):
+              raise
+
+      subprocess.call(config_cmd.split(' '),shell=False)
 
   def as_string(self):
       return ", ".join((self.name,self.category,self.info))
@@ -183,7 +201,7 @@ elif command == 'categories':
     list_categories()
 elif command == 'install':
     install()
-    subprocess.call(['sudo','cp','../dist/open-gecko.desktop','/usr/share/xsessions/open-gecko.desktop'])
+    subprocess.call(['sudo','cp','../dist/open-gecko.desktop','/usr/share/xsessions/open-gecko.desktop'])    
 else:
    print("Wrong arguments")
    info()
