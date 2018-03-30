@@ -35,7 +35,7 @@ class Package:
           return
       user_home = os.environ.get('HOME','')
       conf_path = self.config.replace('~',user_home,1).replace('$HOME',user_home)
-      config_cmd = 'cp -r ../dist/packages/'+self.name+' '+conf_path
+      config_cmd = 'cp -a ../dist/packages/'+self.name+'/. '+conf_path
       if dry:
         print(config_cmd)
       try:
@@ -201,7 +201,7 @@ elif command == 'categories':
     list_categories()
 elif command == 'install':
     install()
-    subprocess.call(['sudo','cp','../dist/open-gecko.desktop','/usr/share/xsessions/open-gecko.desktop'])    
+    subprocess.call(['sudo','cp','../dist/open-gecko.desktop','/usr/share/xsessions/open-gecko.desktop'])
 else:
    print("Wrong arguments")
    info()
