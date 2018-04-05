@@ -244,6 +244,12 @@ packages:
     url: ''
     info: "Commandline X11 Automation Tool"
     selected: true
+  volti:
+    repository: yaourt
+    category: system
+    url: ''
+    info: "GTK+ mixer application for controlling alsa audio volume from system tray"
+    selected: true
   parcellite:
     repository: pacman
     category: apps
