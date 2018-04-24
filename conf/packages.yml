@@ -250,6 +250,13 @@ packages:
     url: ''
     info: "GTK+ mixer application for controlling alsa audio volume from system tray"
     selected: true
+  neap-hotkey:
+    repository: yaourt
+    category: system
+    info: 'A simple pager that runs in the notification area / systray with hotkey support'
+    url: "https://github.com/10sr/neap"
+    config: '$HOME/.neaprc'
+    selected: true
   parcellite:
     repository: pacman
     category: apps
