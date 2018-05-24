@@ -19,8 +19,8 @@
 compton &
 pcmanfm --desktop &
 tint2 -c $HOME/.config/tint2/tint2rc &
-#tint2 -c $HOME/.config/tint2/taskbar.tint2rc &
 synapse &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 sh .conky/conky-startup.sh &
 tilix &
+volti &

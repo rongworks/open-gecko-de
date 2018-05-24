@@ -15,8 +15,8 @@ function get_cpu_use (){
   total=$(ps -A -o pcpu | tail -n+2 | paste -sd+ | bc)
   cores=2
   #single=$(echo "$total / $cores" | bc)
-  single=$(echo "$total/$cores" | bc)
-  CPU_USE="$total%"
+  single=$(echo "($total/$cores)*0.1" | bc)
+  CPU_USE="$single%"
 }
 
 case "$1" in

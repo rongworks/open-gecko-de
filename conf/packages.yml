@@ -41,7 +41,7 @@ packages:
       category: system
       url: 'https://github.com/chjj/compton'
       info: "X compositor"
-      config: '~/.config'
+      config: '~/.config/compton.conf'
       selected: true
   arc-gtk-theme:
       repository: pacman

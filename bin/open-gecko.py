@@ -17,6 +17,7 @@ class Package:
     self.info = "A package"
     self.config = ""
     self.selected = False
+    self.single_file = False
 
   def install(self,dry=False):
       cmd = self.repository.command +' '+ self.name
@@ -29,20 +30,47 @@ class Package:
 
 
 
+  def prepare_config(self,dry=True):
+      self.copy_config(dry,True)
 
-  def copy_config(self,dry=False):
+  def copy_config(self,dry=False,reverse=False):
       if len(self.config) <= 0:
           return
       user_home = os.environ.get('HOME','')
       conf_path = self.config.replace('~',user_home,1).replace('$HOME',user_home)
-      config_cmd = 'cp -a ../dist/packages/'+self.name+'/. '+conf_path
-      if dry:
-        print(config_cmd)
-      try:
-        os.makedirs(conf_path)
-      except OSError:
-          if not os.path.isdir(conf_path):
-              raise
+      dist_path = '../dist/packages/'+self.name
+      if os.path.isdir(conf_path):
+          conf_path += '/.'
+      else:
+         dist_path += '/'+os.path.basename(conf_path)
+         print(os.path.basename(conf_path))
+      if reverse == True:
+        config_cmd = 'cp -a '+conf_path+' '+dist_path
+        # for subdir, dirs, files in os.walk(conf_path):
+        #     for file in files:
+        #         #print os.path.join(subdir, file)
+        #         filepath = subdir + os.sep + file
+        #
+        #         if filepath.endswith(".asm"):
+        #             print (filepath)
+        if dry:
+          print(config_cmd)
+        try:
+          os.makedirs(dist_path)
+        except OSError:
+            if not os.path.isdir(dist_path):
+                raise
+      else:
+        config_cmd = 'cp -a '+dist_path+'/. '+conf_path
+        if dry:
+          print(config_cmd)
+        try:
+          os.makedirs(conf_path)
+        except OSError:
+            if not os.path.isdir(conf_path):
+                raise
+
+
 
       subprocess.call(config_cmd.split(' '),shell=False)
 
@@ -157,6 +185,10 @@ class InstallManager:
             for package in cat_pkgs:
                 package.install()
 
+    def prepare_config(self,dry):
+        for package in self.packages:
+            if package.selected == True:
+                package.prepare_config(dry)
 
 # Main
 user_home = os.environ.get('HOME','')
@@ -188,6 +220,10 @@ def install():
     install_manager = InstallManager()
     install_manager.parse_config(pkg_file)
     install_manager.install_packages()
+def prepare_config():
+    install_manager = InstallManager()
+    install_manager.parse_config(pkg_file)
+    install_manager.prepare_config(True)
 
 command = 'info'
 if len(sys.argv) > 1:
@@ -202,6 +238,8 @@ elif command == 'categories':
 elif command == 'install':
     install()
     subprocess.call(['sudo','cp','../dist/open-gecko.desktop','/usr/share/xsessions/open-gecko.desktop'])
+elif command == 'prepare_config':
+    prepare_config()
 else:
    print("Wrong arguments")
    info()

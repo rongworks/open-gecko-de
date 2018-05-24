@@ -178,6 +178,11 @@
     <keybind key="C-A-Left">
       <action name="DesktopLeft"/>
     </keybind>
+    <keybind key="W-r">
+      <action name="Execute">
+        <command>xrandr --auto</command>
+      </action>
+    </keybind>
     <keybind key="W-l">
       <action name="Execute">
         <command>oblogout</command>
@@ -245,6 +250,22 @@
     </keybind>
     <keybind key="A-S-Tab">
       <action name="PreviousWindow"/>
+    </keybind>
+    <keybind key="W-Left">        # HalfLeftScreen
+        <action name="UnmaximizeFull"/>
+        <action name="MoveResizeTo"><x>0</x><y>0</y><height>97%</height><width>50%</width></action>
+    </keybind>
+    <keybind key="W-Right">       # HalfRightScreen
+        <action name="UnmaximizeFull"/>
+        <action name="MoveResizeTo"><x>-0</x><y>0</y><height>97%</height><width>50%</width></action>
+    </keybind>
+    <keybind key="W-Up">          # HalfUpperScreen
+        <action name="UnmaximizeFull"/>
+        <action name="MoveResizeTo"><x>0</x><y>0</y><width>100%</width><height>50%</height></action>
+    </keybind>
+    <keybind key="W-Down">        # HalfLowerScreen
+        <action name="UnmaximizeFull"/>
+        <action name="MoveResizeTo"><x>0</x><y>-0</y><width>100%</width><height>50%</height></action>
     </keybind>
     <keybind key="C-A-Tab">
       <action name="NextWindow">
