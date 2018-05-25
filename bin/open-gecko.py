@@ -33,46 +33,42 @@ class Package:
   def prepare_config(self,dry=True):
       self.copy_config(dry,True)
 
+  def copydir(self, src, dest, ignore=None):
+    if os.path.isdir(src):
+        if not os.path.isdir(dest):
+            os.makedirs(dest)
+        files = os.listdir(src)
+        if ignore is not None:
+            ignored = ignore(src, files)
+        else:
+            ignored = set()
+        for f in files:
+            if f not in ignored:
+                self.copydir(os.path.join(src, f),
+                                    os.path.join(dest, f),
+                                    ignore)
+    else:
+        shutil.copyfile(src, dest)
+
   def copy_config(self,dry=False,reverse=False):
       if len(self.config) <= 0:
           return
       user_home = os.environ.get('HOME','')
       conf_path = self.config.replace('~',user_home,1).replace('$HOME',user_home)
       dist_path = '../dist/packages/'+self.name
-      if os.path.isdir(conf_path):
-          conf_path += '/.'
-      else:
-         dist_path += '/'+os.path.basename(conf_path)
-         print(os.path.basename(conf_path))
+
+      src = dist_path
+      dst = conf_path
+
       if reverse == True:
-        config_cmd = 'cp -a '+conf_path+' '+dist_path
-        # for subdir, dirs, files in os.walk(conf_path):
-        #     for file in files:
-        #         #print os.path.join(subdir, file)
-        #         filepath = subdir + os.sep + file
-        #
-        #         if filepath.endswith(".asm"):
-        #             print (filepath)
-        if dry:
-          print(config_cmd)
-        try:
-          os.makedirs(dist_path)
-        except OSError:
-            if not os.path.isdir(dist_path):
-                raise
+          src = conf_path
+          dst = dist_path
+      if os.path.isdir(conf_path):
+          self.copydir(src, dst)
       else:
-        config_cmd = 'cp -a '+dist_path+'/. '+conf_path
-        if dry:
-          print(config_cmd)
-        try:
-          os.makedirs(conf_path)
-        except OSError:
-            if not os.path.isdir(conf_path):
-                raise
-
-
-
-      subprocess.call(config_cmd.split(' '),shell=False)
+          os.makedirs(dst)
+          dst = os.path.join(dst, os.path.basename(conf_path))
+          shutil.copy2(src,dst)
 
   def as_string(self):
       return ", ".join((self.name,self.category,self.info))
