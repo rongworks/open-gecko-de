@@ -57,17 +57,22 @@ class Package:
       conf_path = self.config.replace('~',user_home,1).replace('$HOME',user_home)
       dist_path = '../dist/packages/'+self.name
 
-      src = dist_path
+      src = os.path.join(dist_path, os.path.basename(conf_path))
       dst = conf_path
 
       if reverse == True:
           src = conf_path
-          dst = dist_path
-      if os.path.isdir(conf_path):
+          dst = os.path.join(dist_path, os.path.basename(conf_path))
+      print("copy files "+src+" to "+dst)
+      if os.path.isdir(src):
           self.copydir(src, dst)
       else:
-          os.makedirs(dst)
-          dst = os.path.join(dst, os.path.basename(conf_path))
+          try:
+              os.makedirs(os.path.dirname(dst))
+          except OSError as e:
+              if e.errno != os.errno.EEXIST:
+                  raise
+          #dst = os.path.join(dst, os.path.basename(conf_path))
           shutil.copy2(src,dst)
 
   def as_string(self):
