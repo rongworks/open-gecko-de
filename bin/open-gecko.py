@@ -51,18 +51,19 @@ class Package:
         shutil.copyfile(src, dest)
 
   def copy_config(self,dry=False,reverse=False):
+      #TODO: dry option is gone
       if len(self.config) <= 0:
           return
       user_home = os.environ.get('HOME','')
       conf_path = self.config.replace('~',user_home,1).replace('$HOME',user_home)
-      dist_path = '../dist/packages/'+self.name
+      dist_path = '../dist/packages'+self.config.replace('~','',1).replace('$HOME','')
 
-      src = os.path.join(dist_path, os.path.basename(conf_path))
+      src = dist_path
       dst = conf_path
 
       if reverse == True:
           src = conf_path
-          dst = os.path.join(dist_path, os.path.basename(conf_path))
+          dst = dist_path
       print("copy files "+src+" to "+dst)
       if os.path.isdir(src):
           self.copydir(src, dst)
