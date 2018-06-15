@@ -92,6 +92,7 @@ packages:
       category: system
       url: ''
       info: "Graphical Configuration for Openbox"
+      config: "~/.themes"
       selected: true
   lightdm-gtk-greeter-settings:
       repository: pacman
@@ -263,6 +264,13 @@ packages:
     url: ''
     info: "Leightweight Clipboard Manager"
     selected: true
+  zsh:
+    repository: pacman
+    category: apps
+    url: ''
+    info: "A very advanced and programmable command interpreter (shell) for UNIX"
+    config: "$HOME/.zshrc"
+    selected: true
 repositories:
   pacman:
 #    filepath: ./pacman.txt
@@ -272,3 +280,13 @@ repositories:
 #    filepath: ./yaourt.txt
     command: yaourt -S --noconfirm --needed
     active: true
+custom_files:
+  open-gecko-desktop:
+    src: '../dist/open-gecko.desktop'
+    dst: '/usr/share/xsessions/open-gecko.desktop'
+  oh_my_zsh:
+    src: '..dist/oh_my_zsh'
+    dst: '$HOME/oh_my_zsh'
+  og-wallpaper:
+    src: '..dist/default_wallpaper.png'
+    dst: '$HOME/.config/wallpaper/default_wallpaper.png'

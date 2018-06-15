@@ -251,21 +251,41 @@
     <keybind key="A-S-Tab">
       <action name="PreviousWindow"/>
     </keybind>
-    <keybind key="W-Left">        # HalfLeftScreen
-        <action name="UnmaximizeFull"/>
-        <action name="MoveResizeTo"><x>0</x><y>0</y><height>97%</height><width>50%</width></action>
+    <keybind key="W-Left">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>97%</height>
+      </action>
     </keybind>
-    <keybind key="W-Right">       # HalfRightScreen
-        <action name="UnmaximizeFull"/>
-        <action name="MoveResizeTo"><x>-0</x><y>0</y><height>97%</height><width>50%</width></action>
+    <keybind key="W-Right">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <x>-0</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>97%</height>
+      </action>
     </keybind>
-    <keybind key="W-Up">          # HalfUpperScreen
-        <action name="UnmaximizeFull"/>
-        <action name="MoveResizeTo"><x>0</x><y>0</y><width>100%</width><height>50%</height></action>
+    <keybind key="W-Up">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <y>0</y>
+        <width>100%</width>
+        <height>50%</height>
+      </action>
     </keybind>
-    <keybind key="W-Down">        # HalfLowerScreen
-        <action name="UnmaximizeFull"/>
-        <action name="MoveResizeTo"><x>0</x><y>-0</y><width>100%</width><height>50%</height></action>
+    <keybind key="W-Down">
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <y>-0</y>
+        <width>100%</width>
+        <height>50%</height>
+      </action>
     </keybind>
     <keybind key="C-A-Tab">
       <action name="NextWindow">
@@ -294,14 +314,9 @@
         </startupnotify>
       </action>
     </keybind>
-    <keybind key="F1">
+    <keybind key="W-t">
       <action name="Execute">
         <command>tilix --quake</command>
-      </action>
-    </keybind>
-    <keybind key="F2">
-      <action name="Execute">
-        <command>synapse</command>
       </action>
     </keybind>
   </keyboard>

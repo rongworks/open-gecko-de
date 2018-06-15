@@ -1,0 +1,128 @@
+# Aeterna, created by urukrama (12-2007)
+
+# Window geometry
+padding.width: 4
+padding.height: 2
+border.width: 1
+window.client.padding.width: 1
+window.client.padding.height: 0
+window.handle.width: 2
+
+#Menu geometry
+menu.border.width: 2
+menu.overlap: 0
+
+# Border colors
+window.active.border.color: #323b23
+window.inactive.border.color: #555c49
+menu.border.color: #323b23
+window.active.client.color: #323b23
+window.inactive.client.color: #555c49
+osd.border.color: #323b23
+
+# Text shadows
+window.active.label.text.font: shadow=n
+window.inactive.label.text.font: shadow=n
+menu.items.font: shadow=n
+menu.title.text.font: shadow=n
+
+# Title justification
+window.label.text.justify: center
+menu.title.text.justify: center
+
+# Menus
+menu.title.bg: flat solid
+menu.title.bg.color: #a6b38d
+menu.title.text.color: #323b23
+
+menu.items.bg: flat solid
+menu.items.bg.color: #fefefe
+menu.items.text.color: #323b23
+menu.items.disabled.text.color: #c4e58a
+
+menu.items.active.bg: flat solid
+menu.items.active.bg.color: #323b23
+menu.items.active.text.color:  #fefefe
+menu.items.active.disabled.text.color: #c4e58a
+
+# Active window
+window.active.title.bg: flat solid border
+window.active.title.bg.color: #a6b38d
+window.active.title.bg.border.color: #323b23
+
+window.active.label.bg: Parentrelative
+window.active.label.text.color: #323b23
+
+window.active.handle.bg: Flat solid
+window.active.handle.bg.color: #a6b38d
+
+window.active.grip.bg: Flat solid
+window.active.grip.bg.color: #323b23
+
+window.active.button.unpressed.bg: parentrelative
+window.active.button.unpressed.image.color: #7a8f56
+
+window.active.button.pressed.bg: Parentrelative
+window.active.button.pressed.image.color: #fefefe
+
+window.active.button.disabled.bg: Parentrelative
+window.active.button.disabled.image.color: #a6b38d
+
+window.active.button.toggled.unpressed.bg: Parentrelative 
+window.active.button.toggled.unpressed.image.color: #7a8f56
+
+window.active.button.toggled.pressed.bg: Parentrelative 
+window.active.button.toggled.pressed.image.color:  #fefefe
+
+window.active.button.toggled.hover.bg: Parentrelative 
+window.active.button.toggled.hover.image.color: #323b23
+
+window.active.button.hover.bg: Parentrelative
+window.active.button.hover.image.color: #323b23
+
+# Inactive windows
+window.inactive.title.bg: flat solid
+window.inactive.title.bg.color: #555c49
+
+window.inactive.label.bg: Parentrelative
+window.inactive.label.text.color: #323b23
+
+window.inactive.handle.bg: Flat solid
+window.inactive.handle.bg.color: #555c49
+
+window.inactive.grip.bg: Flat solid
+window.inactive.grip.bg.color: #555c49
+
+window.inactive.button.unpressed.bg: Parentrelative
+window.inactive.button.unpressed.image.color: #323b23
+
+window.inactive.button.pressed.bg: Parentrelative
+window.inactive.button.pressed.image.color: #fefefe
+
+window.inactive.button.disabled.bg: Parentrelative
+window.inactive.button.disabled.image.color: #555c49
+
+window.inactive.button.toggled.unpressed.bg: Parentrelative
+window.inactive.button.toggled.unpressed.image.color: #323b23
+
+window.inactive.button.toggled.pressed.bg: Parentrelative
+window.inactive.button.toggled.pressed.image.color: #fefefe
+
+window.inactive.button.toggled.hover.bg: Parentrelative
+window.inactive.button.toggled.hover.image.color: #a6b38d
+
+window.inactive.button.hover.bg: Parentrelative
+window.inactive.button.hover.image.color: #a6b38d
+
+#OSD
+osd.bg: flat solid
+osd.bg.color: #fefefe
+
+osd.label.bg: parentrelative
+osd.label.text.color:  #323b23
+
+osd.hilight.bg: solid flat
+osd.hilight.bg.color: #a6b38d
+
+osd.unhilight.bg: flat solid
+osd.unhilight.bg.color: #fefefe

@@ -1,11 +1,17 @@
 # -*- coding: utf-8 -*-
-import yaml
+#import yaml
 import io
 import os
 import sys
 import shutil
 import subprocess
 import argparse
+
+try:
+ import yaml
+except ImportError as e:
+ print("Yaml package not found, please install python-yaml package")
+ exit(1)
 
 class Package:
 
@@ -64,17 +70,24 @@ class Package:
       if reverse == True:
           src = conf_path
           dst = dist_path
-      print("copy files "+src+" to "+dst)
-      if os.path.isdir(src):
-          self.copydir(src, dst)
+
+
+      if not dry:
+          dsc=''
+          if os.path.isdir(src):
+              self.copydir(src, dst)
+          else:
+              try:
+                  os.makedirs(os.path.dirname(dst))
+              except OSError as e:
+                  if e.errno != os.errno.EEXIST:
+                      raise
+              #dst = os.path.join(dst, os.path.basename(conf_path))
+              shutil.copy2(src,dst)
       else:
-          try:
-              os.makedirs(os.path.dirname(dst))
-          except OSError as e:
-              if e.errno != os.errno.EEXIST:
-                  raise
-          #dst = os.path.join(dst, os.path.basename(conf_path))
-          shutil.copy2(src,dst)
+        dsc = "(dry): "
+      print(dsc+"copy files "+src+" to "+dst)
+
 
   def as_string(self):
       return ", ".join((self.name,self.category,self.info))
@@ -99,6 +112,11 @@ class Repository:
   def addpkg(self,pkg):
       self.child_packages.append(pkg)
 
+
+class CustomFile:
+    def __init__(self):
+        self.src = ''
+        self.dst = ''
 
 class Parser:
 
@@ -147,12 +165,23 @@ class Parser:
         package.selected = data.get('selected',False)
         return package
 
+    def read_files(self):
+        custom_files = []
+        filekey = 'custom_files'
+        for cfile in self.data.get(filekey):
+            cf = CustomFile()
+            cf.src = self.data[filekey][cfile]['src']
+            cf.dst = self.data[filekey][cfile]['dst']
+            custom_files.append(cf)
+        return custom_files
+
 class InstallManager:
 
     def __init__(self):
         self.packages = []
         self.repositories = []
         self.categories = {}
+        self.files = []
 
     def parse_config(self,file):
         with open(file, 'r') as stream:
@@ -163,7 +192,7 @@ class InstallManager:
         parser = Parser(data_loaded)
         #repositories = repositories_from_yaml(data_loaded)
         self.packages = parser.read_packages()
-
+        self.files = parser.read_files()
         for package in self.packages:
             if not package.category in self.categories:
                 self.categories[package.category] = [package]
@@ -186,6 +215,12 @@ class InstallManager:
             cat_pkgs = self.categories[ikey]
             for package in cat_pkgs:
                 package.install()
+    def install_files(self):
+        for cfile in self.files:
+          if os.path.isdir(cfile.src):
+            shutils.copyTree(cfile.src,cfile.dst)
+          else:
+            shutils.copy2(cfile.src,cfile.dst)
 
     def prepare_config(self,dry):
         for package in self.packages:
@@ -225,7 +260,7 @@ def install():
 def prepare_config():
     install_manager = InstallManager()
     install_manager.parse_config(pkg_file)
-    install_manager.prepare_config(True)
+    install_manager.prepare_config(False)
 
 command = 'info'
 if len(sys.argv) > 1:
@@ -239,7 +274,7 @@ elif command == 'categories':
     list_categories()
 elif command == 'install':
     install()
-    subprocess.call(['sudo','cp','../dist/open-gecko.desktop','/usr/share/xsessions/open-gecko.desktop'])
+    #subprocess.call(['sudo','cp','../dist/open-gecko.desktop','/usr/share/xsessions/open-gecko.desktop'])
 elif command == 'prepare_config':
     prepare_config()
 else:
