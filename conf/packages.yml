@@ -167,13 +167,13 @@ packages:
     repository: pacman
     category: apps
     url: ''
-    info: "ladida"
+    info: ""
     selected: true
   pcmanfm-gtk3:
     repository: pacman
     category: system
     url: ''
-    info: "ladida"
+    info: ""
     config: '~/.config/pcmanfm'
     selected: true
   conky:
@@ -181,13 +181,13 @@ packages:
     category: apps
     url: ''
     config: '~/.conky'
-    info: "ladida"
+    info: ""
     selected: true
   conky-manager:
     repository: pacman
     category: apps
     url: ''
-    info: "ladida"
+    info: ""
     selected: true
   networkmanager:
     repository: pacman
@@ -281,12 +281,6 @@ repositories:
     command: yaourt -S --noconfirm --needed
     active: true
 custom_files:
-  open-gecko-desktop:
-    src: '../dist/open-gecko.desktop'
-    dst: '/usr/share/xsessions/open-gecko.desktop'
-  oh_my_zsh:
-    src: '..dist/oh_my_zsh'
-    dst: '$HOME/oh_my_zsh'
   og-wallpaper:
-    src: '..dist/default_wallpaper.png'
-    dst: '$HOME/.config/wallpaper/default_wallpaper.png'
+    src: '..dist/open_gecko_wallpaper.png'
+    dst: '$HOME/.config/wallpaper/open_gecko_wallpaper.png'

@@ -218,9 +218,9 @@ class InstallManager:
     def install_files(self):
         for cfile in self.files:
           if os.path.isdir(cfile.src):
-            shutils.copyTree(cfile.src,cfile.dst)
+            shutil.copyTree(cfile.src,cfile.dst)
           else:
-            shutils.copy2(cfile.src,cfile.dst)
+            shutil.copy2(cfile.src,cfile.dst)
 
     def prepare_config(self,dry):
         for package in self.packages:
@@ -230,7 +230,7 @@ class InstallManager:
 # Main
 user_home = os.environ.get('HOME','')
 app_name = 'Open Gecko DE'
-version = '0.4.0'
+version = '0.5.0'
 description = "Installer script for installing custom OpenBox-Desktop\n \
   usage: open-gecko.py COMMAND [PATH]\n \
   COMMANDS: \n \
@@ -257,6 +257,8 @@ def install():
     install_manager = InstallManager()
     install_manager.parse_config(pkg_file)
     install_manager.install_packages()
+    install_manager.install_files()
+
 def prepare_config():
     install_manager = InstallManager()
     install_manager.parse_config(pkg_file)
@@ -274,7 +276,7 @@ elif command == 'categories':
     list_categories()
 elif command == 'install':
     install()
-    #subprocess.call(['sudo','cp','../dist/open-gecko.desktop','/usr/share/xsessions/open-gecko.desktop'])
+    subprocess.call(['sudo','cp','../dist/open-gecko.desktop','/usr/share/xsessions/open-gecko.desktop'])
 elif command == 'prepare_config':
     prepare_config()
 else:
