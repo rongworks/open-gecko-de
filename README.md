@@ -1,26 +1,66 @@
 # open-gecko-de
-custom unix desktop environment
+
+A custom linux desktop environment (currently only arch linux packages)
 
 ## Introduction
 
-## Install
+(//TODO: Screenshot)
 
-## Use
+## What it does
+* A new Session called "Open Gecko" will be installed on the system
+* OG will install Openbox with custom packages and configurations for your desktop.
+* You will be able to switch sessions from/to Open Gecko
+  * Your alternate Desktop session should not use Openbox (there can be conflicts otherwise)   
+* Openbox will be configured with custom shortcuts, aliases etc.
+
+## What it doesn't
+* Open Gecko is no feature rich Desktop Environment,
+ * Just the window manager, compositor etc. and some applications will be   installed
+  * You will have to add your own packages for specific tasks (multimedia etc.)
+
+## How to Install
+
+-- **Warning !**
+
+ This build is experimental.
+ It will:
+
+* Install and configure Openbox (and overwrite existing configurations)
+* Install custom packages
+* Overwrite existing configurations (If you already installed a package)
+
+--
+
+1. First check the configuration in [conf/packages.yml](../conf/packages.yml)
+  * You can edit / add your own packages in the *packages* section
+  * You can select / deselect packages by editing the *selected* attribute
+  * You can change repositories / commands by editing the *repositories* section
+  * You can edit custom files in the *custom_files* section
+2. Run the installer
+```bash
+  cd <open-gecko-dir>/bin
+  python open-gecko-py install
+```
+3. Follow the instructions in the installer
+
+You can see the selected packages by calling `python open-gecko.py categories`
+
+It will list the packages that will be installed grouped by category.
 
 ## Contents
+(//TODO: list packages)
 
-packages:
+* packages, repositories, files are listed in [conf/packages.yml](../conf/packages.yml)
+* custom files and config files can be found in the */dist* folder
 
-|name|category|url|info|
-|---|---|---|---|
-|openbox|Window Manager|https://openbox.org|Basic window manager|
-| obconf |WM config ||GUI for editing rc.xml|
-|obkey   | WM config||GUI for managing key-mappings|
-|oblogout| WM utils ||GUI for logout, restart, shutdown,..|
-|avant-window-navigator| Dock / Panel | https://github.com/p12tic/awn| Customizable Dock with system tray, applets etc.|
-|rofi| Window switcher/Dmenu/Launcher|https://github.com/DaveDavenport/rofi|Searchable window-switcher, application-runner|
-|conky| Widgets |https://github.com/brndnmtthws/conky| Desktop Widgets|
-|conky-manager| Widgets|https://launchpad.net/conky-manager|GUI for managing conky configs|
-|ulauncher| Application Launcher / "Dash"|https://ulauncher.io/|Launch-Menu for applications, google search etc.|
-|pcmanfm| File Manager / Desktop Manager| https://wiki.lxde.org/en/PCManFM| File Browser and Desktop Manager (Wallpaper etc.)|
-|tilix| Terminal emulator|https://github.com/gnunn1/tilix| Terminal emulator|
+## Other distributions / repositores
+
+* You can edit the package and repository list in  [conf/packages.yml](../conf/packages.yml)
+  * packages are installed by *repository::command *package::node_name* so you should change the yml-node name for another package name
+* The installer *should* work on other system with modified config files (e.g. debian repositories)
+
+## TODO
+
+* Make a better readme
+* Make installer script more stable
+* Maybe add some packages
