@@ -31,7 +31,7 @@ A custom linux desktop environment (currently only arch linux packages)
 
 --
 
-1. First check the configuration in [conf/packages.yml](../conf/packages.yml)
+1. First check the configuration in [conf/packages.yml](conf/packages.yml)
   * You can edit / add your own packages in the *packages* section
   * You can select / deselect packages by editing the *selected* attribute
   * You can change repositories / commands by editing the *repositories* section
@@ -50,12 +50,12 @@ It will list the packages that will be installed grouped by category.
 ## Contents
 (//TODO: list packages)
 
-* packages, repositories, files are listed in [conf/packages.yml](../conf/packages.yml)
+* packages, repositories, files are listed in [conf/packages.yml](conf/packages.yml)
 * custom files and config files can be found in the */dist* folder
 
 ## Other distributions / repositores
 
-* You can edit the package and repository list in  [conf/packages.yml](../conf/packages.yml)
+* You can edit the package and repository list in  [conf/packages.yml](conf/packages.yml)
   * packages are installed by *repository::command *package::node_name* so you should change the yml-node name for another package name
 * The installer *should* work on other system with modified config files (e.g. debian repositories)
 
