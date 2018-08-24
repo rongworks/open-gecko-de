@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<gconf>
-	<entry name="applet_border_width" mtime="1513423273" type="int" value="1"/>
-	<entry name="show_icon_mode" mtime="1513423258" type="int" value="1"/>
-	<entry name="columns" mtime="1513260447" type="int" value="3"/>
-	<entry name="rows" mtime="1513260448" type="int" value="3"/>
-</gconf>

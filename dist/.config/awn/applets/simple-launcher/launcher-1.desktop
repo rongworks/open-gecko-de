@@ -1,6 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Exit
-Comment=Logout, Restart, Shutdown
-Exec=oblogout
-Icon=edit-delete-symbolic

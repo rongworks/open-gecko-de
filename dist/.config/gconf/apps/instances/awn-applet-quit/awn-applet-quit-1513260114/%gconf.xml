@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<gconf>
-	<entry name="log-out-command" mtime="1513260114" schema="/schemas/apps/awn-applet-quit/log-out-command"/>
-	<entry name="lock-screen-command" mtime="1513260114" schema="/schemas/apps/awn-applet-quit/lock-screen-command"/>
-	<entry name="left-click-action" mtime="1513260114" schema="/schemas/apps/awn-applet-quit/left-click-action" type="string">
-		<stringvalue>Docklet zeigen</stringvalue>
-	</entry>
-</gconf>

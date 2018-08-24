@@ -245,11 +245,12 @@ packages:
     url: ''
     info: "Commandline X11 Automation Tool"
     selected: true
-  volti:
+  pnmixer:
     repository: yaourt
     category: system
+    config: '$HOME/.config/pnmixer/'
     url: ''
-    info: "GTK+ mixer application for controlling alsa audio volume from system tray"
+    info: "GTK volume mixer applet that runs in the system tray."
     selected: true
   neap-hotkey:
     repository: yaourt
@@ -271,6 +272,25 @@ packages:
     info: "A very advanced and programmable command interpreter (shell) for UNIX"
     config: "$HOME/.zshrc"
     selected: true
+  python-psutil:
+    repository: pacman
+    category: apps
+    url: ''
+    info: "A cross-platform process and system utilities module for python"
+    selected: true
+  feh:
+    repository: pacman
+    category: system
+    url: ''
+    info: "Fast and light imlib2-based image viewer"
+    selected: true
+  zenity:
+    repository: pacman
+    category: system
+    url: ''
+    info: "Display graphical dialog boxes from shell scripts"
+    selected: true
+
 repositories:
   pacman:
 #    filepath: ./pacman.txt
@@ -282,5 +302,14 @@ repositories:
     active: true
 custom_files:
   og-wallpaper:
-    src: '..dist/open_gecko_wallpaper.png'
-    dst: '$HOME/.config/wallpaper/open_gecko_wallpaper.png'
+    src: '../dist/open-gecko/open_gecko_wallpaper.png'
+    dst: '$HOME/.config/open-gecko/open_gecko_wallpaper.png'
+  og-session:
+    src: '../dist/open-gecko/open-gecko.desktop'
+    dst: '/usr/share/xsessions/open-gecko.desktop'
+  og-menu:
+    src: '../dist/open-gecko/open-gecko-menu.desktop'
+    dst: '/usr/share/applications/open-gecko-menu.desktop'
+  og-icon:
+    src: '../dist/open-gecko/open-gecko-icon.png'
+    dst: '$HOME/.config/open-gecko/open-gecko-icon.png'
