@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Open Gecko
+Comment=https://github.com/rongworks/open-gecko-de
+Exec=/usr/bin/openbox-session
+TryExec=/usr/bin/openbox-session
+Icon=
+Type=Application

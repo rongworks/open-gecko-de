@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu xmlns="http://openbox.org/"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://openbox.org/">
+    <menu id="obmenu-generator" label="Applications" execute="/usr/bin/obmenu-generator -i" />
+    <menu id="settings" label="Settings">
+      <item label="Openbox Configuration">
+        <action name="Execute">
+          <command>xdg-open ~/.config/openbox/rc.xml </command>
+          <startupnotify>
+            <enabled>yes</enabled>
+          </startupnotify>
+        </action>
+      </item>
+      <item label="Shortcuts">
+        <action name="Execute">
+          <command>obkey</command>
+          <startupnotify>
+            <enabled>yes</enabled>
+          </startupnotify>
+        </action>
+      </item>
+      <item label="autostart">
+        <action name="Execute">
+          <command>xdg-open ~/.config/openbox/autostart</command>
+          <startupnotify>
+            <enabled>yes</enabled>
+          </startupnotify>
+        </action>
+      </item>
+    </menu>
+
+    <menu id="root-menu" label="Openbox 3">
+      <separator label="Applications" />
+      <menu id="obmenu-generator" />
+      <separator label="Settings" />
+      <menu id="settings"/>
+    </menu>
+</openbox_menu>

@@ -1,0 +1,142 @@
+# Red Giant, created by urukrama (09-2007)
+
+# Window geometry
+padding.width: 1
+border.width: 1
+window.client.padding.width: 1
+window.client.padding.height: 0
+window.handle.width: 1
+
+#Menu geometry
+menu.border.width: 1
+menu.overlap: 0
+
+# Border colors
+window.active.border.color: #ff9eaf
+window.inactive.border.color: #ff9eaf
+menu.border.color: #ff9eaf
+window.active.client.color: #ff9eaf
+window.inactive.client.color: #F8F8EF
+
+# Text shadows
+window.active.label.text.font: shadow=n
+window.inactive.label.text.font: shadow=n
+menu.items.font: shadow=n
+menu.title.text.font: shadow=n
+
+# Window title justification
+window.label.text.justify: center
+
+# Menus
+menu.title.bg: Raised Gradient MirrorHorizontal
+menu.title.bg.color: #ff9eaf
+menu.title.bg.colorTo: #f894a5
+menu.title.bg.highlight: 24
+menu.title.bg.shadow: 16
+menu.title.text.color: #F8F8EF
+menu.title.text.justify: center
+
+menu.items.bg: raised solid
+menu.items.bg.color: #F8F8EF
+menu.items.text.color: #f894a5
+menu.items.disabled.text.color: #CFCFBC
+menu.items.bg.highlight: 32
+menu.items.bg.shadow: 12
+
+menu.items.active.bg: flat solid bevel2
+menu.items.active.bg.color: #ff9eaf
+menu.items.active.text.color:  #F8F8EF
+menu.items.active.disabled.text.color: #D4D4C1
+
+# Active window
+window.active.title.bg: raised gradient MirrorHorizontal
+window.active.title.bg.color: #ff9eaf
+window.active.title.bg.colorTo: #f894a5
+window.active.title.bg.highlight: 40
+window.active.title.bg.shadow: 16
+
+window.active.label.bg: flat solid border
+window.active.label.bg.color:#F8F8EF
+window.active.label.bg.border.color: #f894a5
+window.active.label.text.color: #f894a5
+
+window.active.handle.bg: Flat Gradient MirrorHorizontal
+window.active.handle.bg.color: #ff9eaf
+window.active.handle.bg.colorTo: #f894a5
+
+window.active.grip.bg: Flat Gradient MirrorHorizontal
+window.active.grip.bg.color: #ff9eaf
+window.active.grip.bg.colorTo: #f894a5
+
+window.active.button.unpressed.bg: Parentrelative
+window.active.button.unpressed.image.color: #F8F8EF
+
+window.active.button.pressed.bg: Parentrelative
+window.active.button.pressed.image.color: #ff9eaf
+
+window.active.button.disabled.bg: Parentrelative
+window.active.button.disabled.image.color: #ff9eaf
+
+window.active.button.toggled.unpressed.bg: Parentrelative 
+window.active.button.toggled.unpressed.image.color: #F8F8EF
+
+window.active.button.toggled.pressed.bg: Parentrelative 
+window.active.button.toggled.pressed.image.color: #ff9eaf
+
+window.active.button.toggled.hover.bg: Parentrelative 
+window.active.button.toggled.hover.image.color: #e0e081
+
+window.active.button.hover.bg: Parentrelative
+window.active.button.hover.image.color: #e0e081
+
+# Inactive windows
+window.inactive.title.bg: flat gradient MirrorHorizontal
+window.inactive.title.bg.color: #F8F8EF
+window.inactive.title.bg.colorTo: #EAF7EA
+
+window.inactive.label.bg: flat solid bevel1
+window.inactive.label.bg.color:#F8F8EF
+window.inactive.label.text.color: #f894a5
+
+window.inactive.handle.bg: Flat Gradient MirrorHorizontal
+window.inactive.handle.bg.color: #ff9eaf
+window.inactive.handle.bg.colorTo: #f894a5
+
+window.inactive.grip.bg: Flat Gradient MirrorHorizontal
+window.inactive.grip.bg.color: #ff9eaf
+window.inactive.grip.bg.colorTo: #f894a5
+
+window.inactive.button.unpressed.bg: Parentrelative
+window.inactive.button.unpressed.image.color: #f894a5
+
+window.inactive.button.pressed.bg: Parentrelative
+window.inactive.button.pressed.image.color: #F8F8EF
+
+window.inactive.button.disabled.bg: Parentrelative
+window.inactive.button.disabled.image.color: #F8F8EF
+
+window.inactive.button.toggled.unpressed.bg: Parentrelative
+window.inactive.button.toggled.unpressed.image.color: #ff9eaf
+
+window.inactive.button.toggled.pressed.bg: Parentrelative
+window.inactive.button.toggled.pressed.image.color: #F8F8EF
+
+window.inactive.button.toggled.hover.bg: Parentrelative
+window.inactive.button.toggled.hover.image.color: #e0e081
+
+window.inactive.button.hover.bg: Parentrelative
+window.inactive.button.hover.image.color: #e0e081
+
+#OSD
+osd.bg: flat solid
+osd.bg.color: #F8F8EF
+osd.bg.border.color: #ff9eaf
+
+osd.label.bg: parentrelative
+osd.label.text.color:  #ff9eaf
+
+osd.hilight.bg: solid flat
+osd.hilight.bg.color: #ff9eaf
+
+osd.unhilight.bg: flat solid
+osd.unhilight.bg.color: #FCFCFC

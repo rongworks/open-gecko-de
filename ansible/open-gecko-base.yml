@@ -1,0 +1,101 @@
+---
+- hosts: all
+  #connection: local
+  vars:
+    install_mode: 'install'
+    home_folder: "{{ ansible_env.HOME }}"
+  vars_files:
+    - vars/pkg_base.yml
+  tasks:
+  - name: debug specified user's home dir through ansible.env
+    debug:
+      msg: "HOME: {{ansible_env.HOME}}"
+
+  - name: debug specified user's home dir through lookup on env
+    debug:
+      msg: "HOME_FOLDER: {{home_folder}}"
+
+  - name: Install git, base-devel for yay package
+    pacman:
+      name: ['git', 'base-devel']
+      state: present
+    become: true
+
+  - name: Check for yay
+    command: yay -v
+    ignore_errors: true
+    register: yay_test
+
+  - name: Download yay
+    git:
+      repo: 'https://aur.archlinux.org/yay.git'
+      dest: "{{ home_folder }}/tmp/yay"
+    when: yay_test.rc != 0
+
+  - name: Install yay
+    shell:
+      cmd: MAKEFLAGS="-j$(nproc)" makepkg -si --noconfirm
+      chdir: "{{ home_folder }}/tmp/yay"
+    when: yay_test.rc != 0
+  #- name: Install packages
+  #  become: true
+  #  command: yay -S "^{{ item.name }}$" --noconfirm --needed
+    #debug:
+    #  msg: "{{ item.name }}"
+  #  with_items: "{{ open_gecko_packages }}"
+  - name: Install packages
+    #become: true
+    yay:
+      name: "{{ item.name }}"
+      state: present
+    with_items: "{{ open_gecko_packages }}"
+    when: item.selected|bool == true
+
+  - name: Creates directory
+    file:
+      path: "{{ item }}"
+      state: directory
+    with_items:
+      - "{{ home_folder }}/.local/share/applications"
+      - "/usr/share/xsessions"
+      - "{{ home_folder }}/.config"
+    become: true
+
+  - name: Copy user configs
+    vars:
+      conf_path: "{{ item.config|replace('$HOME', '')|replace('~/', '')|regex_replace('(\/\\w+)$','\\1\/') }}" #regex_replace fails for files
+      is_selected: "{{ item.selected|bool == true }}"
+      force: "{{ install_mode == 'install' }}"
+    synchronize:
+      src: "home/{{ conf_path }}"
+      dest: "{{ home_folder }}/{{ conf_path }}"
+    with_items: "{{ open_gecko_packages }}"
+    when: item.config is defined and is_selected and force
+
+  - name: Copy Open-Gecko base files
+    synchronize:
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+      #owner: "{{ ansible_user }}"
+    become: true
+    with_items:
+      - {
+        src: open-gecko/open_gecko_wallpaper.png,
+        dest: "{{ home_folder }}/open_gecko_wallpaper.png"
+        }
+      - {
+        src: open-gecko/open-gecko-icon.png,
+        dest: "{{ home_folder }}/open-gecko-icon.png"
+        }
+      - {
+        src: files/open-gecko/open-gecko.desktop,
+        dest: "/usr/share/xsessions/open-gecko.desktop" }
+      - {
+        src: files/open-gecko/open-gecko-menu.desktop,
+        dest: "{{ home_folder }}/.local/share/applications/open-gecko-menu.desktop"
+        }
+
+  - name: Enable lightdm
+    become: true
+    shell:
+      cmd: systemctl enable lightdm
