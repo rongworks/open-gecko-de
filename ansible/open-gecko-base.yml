@@ -4,6 +4,7 @@
   vars:
     install_mode: 'install'
     home_folder: "{{ ansible_env.HOME }}"
+    overwrite: false
   vars_files:
     - vars/pkg_base.yml
   tasks:
@@ -26,13 +27,23 @@
     ignore_errors: true
     register: yay_test
 
-  - name: Download yay
+  - name: Download yay (skip when installed)
     git:
       repo: 'https://aur.archlinux.org/yay.git'
       dest: "{{ home_folder }}/tmp/yay"
     when: yay_test.rc != 0
 
-  - name: Install yay
+  - name: Create directories for open gecko files
+    file:
+      path: "{{ item }}"
+      state: directory
+    with_items:
+      - "{{ home_folder }}/.local/share/applications"
+      - "/usr/share/xsessions"
+      - "{{ home_folder }}/.config"
+    become: true
+
+  - name: Install yay (skip when installed)
     shell:
       cmd: MAKEFLAGS="-j$(nproc)" makepkg -si --noconfirm
       chdir: "{{ home_folder }}/tmp/yay"
@@ -43,6 +54,7 @@
     #debug:
     #  msg: "{{ item.name }}"
   #  with_items: "{{ open_gecko_packages }}"
+
   - name: Install packages
     #become: true
     yay:
@@ -51,26 +63,45 @@
     with_items: "{{ open_gecko_packages }}"
     when: item.selected|bool == true
 
-  - name: Creates directory
-    file:
-      path: "{{ item }}"
-      state: directory
-    with_items:
-      - "{{ home_folder }}/.local/share/applications"
-      - "/usr/share/xsessions"
-      - "{{ home_folder }}/.config"
-    become: true
-
-  - name: Copy user configs
-    vars:
-      conf_path: "{{ item.config|replace('$HOME', '')|replace('~/', '')|regex_replace('(\/\\w+)$','\\1\/') }}" #regex_replace fails for files
-      is_selected: "{{ item.selected|bool == true }}"
-      force: "{{ install_mode == 'install' }}"
+  - name: Sync user config (Overwrite existing conf)
     synchronize:
-      src: "home/{{ conf_path }}"
-      dest: "{{ home_folder }}/{{ conf_path }}"
+      src: "home/"
+      dest: "{{ home_folder }}"
+    when: overwrite == true
+
+  - name: Sync user config (Keep existing conf)
+    synchronize:
+      src: "home/"
+      dest: "{{ home_folder }}"
+      rsync_opts:
+        - "--ignore-existing"
+    when: overwrite == false
+
+  - name: Remove deselected configs
+    shell: /bin/rm -rf "{{ item.config }}"
+    when: item.selected|bool == false and item.config is defined
     with_items: "{{ open_gecko_packages }}"
-    when: item.config is defined and is_selected and force
+  #- name: Sync user configs
+  #  vars:
+  #    conf_path: "{{ item.config|replace('$HOME', '')|replace('~/', '')|regex_replace('(\/\\w+)$','\\1\/') }}" #regex_replace fails for files
+  #    is_selected: "{{ item.selected|bool == true }}"
+  #    force: "{{ install_mode == 'install' }}"
+  #  synchronize:
+  #    src: "home/{{ conf_path }}"
+  #    dest: "{{ home_folder }}/{{ conf_path }}"
+  #  with_items: "{{ open_gecko_packages }}"
+  #  when: item.config is defined and is_selected and force
+
+  #- name: Copy user configs
+  #  vars:
+  #    conf_path: "{{ item.config|replace('$HOME', '')|replace('~/', '')|regex_replace('(\/\\w+)$','\\1\/') }}" #regex_replace fails for files
+  #    is_selected: "{{ item.selected|bool == true }}"
+  #    force: "{{ install_mode == 'install' }}"
+  #  copy:
+  #    src: "home/{{ conf_path }}"
+  #    dest: "{{ home_folder }}/{{ conf_path }}"
+  #  with_items: "{{ open_gecko_packages }}"
+  #  when: item.config is defined and is_selected and force
 
   - name: Copy Open-Gecko base files
     synchronize:

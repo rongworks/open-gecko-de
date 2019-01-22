@@ -178,6 +178,11 @@
     <keybind key="C-A-Left">
       <action name="DesktopLeft"/>
     </keybind>
+    <keybind key="C-A-R">
+      <action name="Execute">
+        <command> xrandr --auto</command>
+      </action>
+    </keybind>
     <keybind key="W-r">
       <action name="Execute">
         <command>xrandr --auto</command>
@@ -279,12 +284,12 @@
         <height>50%</height>
       </action>
     </keybind>
-	<keybind key="W-M">
+    <keybind key="W-M">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
         <x>0</x>
         <width>100%</width>
-		<height>100%</height>
+        <height>100%</height>
       </action>
     </keybind>
     <keybind key="C-A-Tab">

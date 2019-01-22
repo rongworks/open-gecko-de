@@ -20,7 +20,7 @@
 
     | substitutions       : Substitute, by using a regex, in the values from the desktop files.
                             Example: [
-                                {key => 'Exec', re => qr/xterm/, value => 'sakura', global => 1},
+                                {key => 'Exec', re => qr/xterm/, value => 'tilix', global => 1},
                             ],
 
 || ICON SETTINGS
@@ -69,5 +69,5 @@ our $CONFIG = {
   "locale_support"      => 1,
   "missing_icon"        => "gtk-missing-image",
   "terminal"            => "xterm",
-  "VERSION"             => 0.84,
+  "VERSION"             => 0.85,
 }

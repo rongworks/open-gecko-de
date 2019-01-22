@@ -17,7 +17,7 @@
 #xfce-mcs-manager &
 
 compton &
-pcmanfm &
+nm-applet &
 tint2 -c $HOME/.config/tint2/tint2rc &
 synapse &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
