@@ -282,6 +282,7 @@ open_gecko_packages:
     repository: pacman
     category: system
     url: ''
+    config: "~/.fehbg"
     info: "Fast and light imlib2-based image viewer"
     selected: true
   - name: zenity

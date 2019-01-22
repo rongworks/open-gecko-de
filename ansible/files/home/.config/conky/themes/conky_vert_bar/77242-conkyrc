@@ -1,0 +1,127 @@
+# UBUNTU-CONKY
+# A comprehensive conky script, configured for use on
+# Ubuntu / Debian Gnome, without the need for any external scripts.
+#
+# Based on conky-jc and the default .conkyrc.
+# INCLUDES:
+# - tail of /var/log/messages 
+# - netstat connections to your computer
+#
+# -- Pengo (conky@pengo.us)
+#
+
+# Create own window instead of using desktop (required in nautilus)
+own_window yes
+own_window_hints undecorated,below,skip_taskbar
+background no
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# fiddle with window
+use_spacer yes
+use_xft yes
+
+# Update interval in seconds
+update_interval 3.0
+
+# Minimum size of text area
+minimum_size 400 5
+
+# Draw shades?
+draw_shades no
+
+# Text stuff
+draw_outline no # amplifies text if yes
+draw_borders no
+
+uppercase no # set to yes if you want all text to be in uppercase
+
+# Stippled borders?
+stippled_borders 1
+
+# border margins
+border_margin 1
+
+# border width
+border_width 1
+
+# Default colors and also border colors, grey90 == #e5e5e5
+default_color white
+default_shade_color black
+default_outline_color grey90
+
+own_window_colour brown
+own_window_transparent yes
+
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+
+# Gap between borders of screen and text
+gap_x -230
+gap_y 35
+
+# stuff after 'TEXT' will be formatted on screen
+
+override_utf8_locale yes
+xftfont Terminus:size=8
+xftalpha 0.8
+
+# Coisas para rever mais tarde
+
+#${offset 240}${color}${font weather:size=26}y ${font}FSB ${i2c temp 1} °C
+#${offset 240}${color slate grey}Temperature:
+#${offset 240}${color}${font weather:size=26}z ${font}CPU ${i2c temp 2} °C
+
+TEXT
+${color slate grey}${time %a, } ${color }${time %e %B %G}
+${color slate grey}${time %Z,    }${color }${time %H:%M:%S}
+
+${voffset 6}${color}${font OpenLogos:size=30}    T
+${voffset -20}${color}${font StyleBats:size=12}O ${font}${color slate grey}UpTime: ${color }$uptime
+${color}${font StyleBats:size=12}Q ${font}${color slate grey}Kern:${color }$kernel
+${color}${font StyleBats:size=12}A ${font}${color slate grey}CPU:${color } $cpu% ${acpitemp}C
+${cpugraph 20,140 000000 ffffff}
+${color slate grey}Load: ${color }$loadavg
+${color slate grey}Processes: ${color }$processes  
+${color slate grey}Running:   ${color }$running_processes
+
+${color}${font Webdings:size=12}i ${font}${color slate grey}Highest CPU:
+${color #ddaa00} ${top name 1}${top cpu 1}
+${color lightgrey} ${top name 2}${top cpu 2}
+${color lightgrey} ${top name 3}${top cpu 3}
+
+${color}${font Webdings:size=12}i ${font}${color slate grey}Highest MEM:
+${color #ddaa00} ${top_mem name 1}${top_mem mem 1}
+${color lightgrey} ${top_mem name 2}${top_mem mem 2}
+${color lightgrey} ${top_mem name 3}${top_mem mem 3}
+
+${color slate grey}MEM:  ${color } $memperc% $mem/$memmax
+${membar 3,140}
+${color slate grey}SWAP: ${color } $swapperc% $swap/$swapmax
+${swapbar 3,140}
+
+${color slate grey}ROOT:    ${color }${fs_free /}/${fs_size /}
+${fs_bar 3,140 /}
+${color slate grey}HOME:  ${color }${fs_free /home}/${fs_size /home}
+${fs_bar 3,140 /home}
+
+${color slate grey}Internet:
+${color}${font PizzaDude Bullets:size=12}M${font}  Tot.up. ${totalup eth0} Kb/s
+${voffset 1}${color}${font PizzaDude Bullets:size=12}v${font}  Up: ${color }${upspeed eth0}k/s
+${upspeedgraph eth0 20,140 000000 ffffff}
+${voffset 6}${color}${font PizzaDude Bullets:size=12}S${font}  Tot.dow. ${totaldown eth0} Kb/s
+${voffset 1}${color}${font PizzaDude Bullets:size=12}r${font}  Down: ${color }${downspeed eth0}k/s
+${downspeedgraph eth0 20,140 000000 ffffff}
+
+${voffset -14}${color}${font Martin Vogel's Symbols:size=16}B${font}${color slate grey}Mail:
+${color }You have ${color3}${texeci 60 perl ~/scripts/gmail.pl n} ${color}new mail(s)
+
+${color slate grey}Weather:
+${color}${execi 3600 perl ~/scripts/weather.pl POXX0035 c 3d}
+${color}${font weather:size=47}${execi 3600 perl ~/scripts/weather.pl POXX0035 c 3dp}${font}
+${color}${execi 3600 perl ~/scripts/weather.pl POXX0035 c 3t}
+${voffset 5}${color}${font Sonora:size=17}&${font}${color slate grey} MusicPlayer:

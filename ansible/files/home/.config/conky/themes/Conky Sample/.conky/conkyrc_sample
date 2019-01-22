@@ -1,0 +1,127 @@
+conky.config = {
+
+-- Modified by Autocrosser
+-- Conky settings #
+	background = false,
+	update_interval = 1,
+	double_buffer = true,
+	no_buffers = true,
+
+-- number of cpu samples to average
+-- set to 1 to disable averaging
+	cpu_avg_samples = 1,
+
+-- number of net samples to average
+-- set to 1 to disable averaging
+	net_avg_samples = 1,
+
+-- Window specifications #
+	own_window = true,
+        own_window_type = 'desktop',
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	own_window_title = '',
+	own_window_transparent=true,
+	own_window_argb_visual = true,
+	own_window_argb_value = 180,
+
+-- Minimum size of text area
+	minimum_width = 220, minimum_height = 1080,
+
+-- Alignment #
+	alignment = 'top_right',
+	gap_x = 0,
+	gap_y = 30,
+
+	border_inner_margin = 0,
+	border_outer_margin = 0,
+
+-- Graphics settings #
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	draw_graph_borders = false,
+
+-- Text settings #
+	use_xft = true,
+	font = 'sans-serif:size=8',
+	xftalpha = 0.5,
+
+	override_utf8_locale = true,
+
+	imlib_cache_size = 0,
+
+-- Color scheme #
+	default_color = '#FFFFFF',
+	color1 = 'green',
+	color2 = 'black',
+
+};
+
+conky.text = [[
+${image ~/.conky/img/elegant.png -p 0,0}
+${goto 15}${color2}${font sans-serif:size=12}${alignc}SYSTEM:${font}${color1}${voffset 5}
+${goto 15}${exec cat /etc/issue.net}
+${goto 15}${exec cat /proc/cpuinfo|grep 'model name'|sed -e 's/model name.*: //'| uniq | cut -c 1-32}
+${goto 15}Kernel:  ${color}$kernel${color1}
+${goto 15}CPU Speed: ${color} ${exec cat /proc/cpuinfo | grep 'model name' | uniq | awk '{print $10}' }
+
+${goto 15}${color2}${font sans-serif:size=12}${alignc}CPU LOAD & TEMP:${font}${voffset 5}
+${goto 88}LOAD:${goto 158}TEMP:${color1}${font}
+${goto 15}CPU 0${goto 90}${color}${cpu cpu0}%${goto 160}${execi 30 sensors|grep 'Core 0'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C 
+${goto 15}${color1}CPU 1${goto 90}${color}${cpu cpu1}%${goto 160}${execi 30 sensors|grep 'Core 1'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C 
+${goto 15}${color1}CPU 2${goto 90}${color}${cpu cpu2}%${goto 160}${execi 30 sensors|grep 'Core 2'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C 
+${goto 15}${color1}CPU 3${goto 90}${color}${cpu cpu3}%${goto 160}${execi 30 sensors|grep 'Core 3'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C 
+${goto 15}${color2}${font sans-serif:size=12}${voffset 20}${alignc}CPU PROCESSES:${font}${color1}
+${goto 15}${voffset 5}${color1}${top name 1}${goto 160}${color}${top cpu 1}%
+${goto 15}${color1}${top name 2}${goto 160}${color}${top cpu 2}%
+${goto 15}${color1}${top name 3}${goto 160}${color}${top cpu 3}%
+${goto 15}${color1}${top name 4}${goto 160}${color}${top cpu 4}%
+${goto 15}${color1}${top name 5}${goto 160}${color}${top cpu 5}%
+
+${goto 15}${color2}${font sans-serif:size=12}${alignc}MEM PROCESSES:${font}${color1}
+${goto 15}${voffset 5}${color1}${top_mem name 1}${goto 160}${color}${top mem 1}%
+${goto 15}${color1}${top_mem name 2}${goto 160}${color}${top mem 2}%
+${goto 15}${color1}${top_mem name 3}${goto 160}${color}${top mem 3}%
+${goto 15}${color1}${top_mem name 4}${goto 160}${color}${top mem 4}%
+${goto 15}${color1}${top_mem name 5}${goto 160}${color}${top mem 5}%
+
+${voffset 5}${goto 90}${color2}USED:${goto 160}TOTAL:${color1}${voffset 5}
+${goto 15}RAM:${color}${goto 90}$memperc% ${goto 160}$memmax
+
+${goto 15}${color2}${font sans-serif:size=12}${alignc}NVIDIA:${font}${color1}${voffset 5}
+${goto 15}GPU1:  ${color}${execi 5 nvidia-settings -t -q [gpu:0]/GPUCoreTemp} °C${goto 140}${color1}GPU2:  ${color}${execi 5 nvidia-settings -t -q [gpu:1]/GPUCoreTemp} °C
+
+${goto 15}${color2}${font sans-serif:size=12}${alignc}DISCS:${font}${voffset 5}
+${goto 90}FREE:${goto 160}TOTAL:${color}${font}
+${goto 15}${color1}Home${color}${goto 90}${fs_free /home}${goto 160}${fs_size /home}
+${goto 15}${color1}Root${color}${goto 90}${fs_free /}${goto 160}${fs_size /}
+${goto 15}${color1}EX2${color}${goto 90}${fs_free /mnt/EX2}${goto 160}${fs_size /mnt/EX2}
+${goto 15}${color1}EX2home${color}${goto 90}${fs_free /mnt/EX2home}${goto 160}${fs_size /mnt/EX2home}
+${goto 15}${color1}Storage${color}${goto 90}${fs_free /media/Storage}${goto 160}${fs_size /media/Storage}
+
+${goto 15}${color2}${font sans-serif:size=12}${alignc}NETWORK:${font}${color}${voffset 5}
+${goto 15}${color1}Down${color}${goto 90}${downspeed bond0} ${goto 140}/  ${totaldown bond0}
+${offset 10}${downspeedgraph bond0 15,200 324D23 77B753 100 -l}
+${goto 15}${color1}${voffset 5}UP${color}${goto 90}${upspeed bond0} ${goto 140}/  ${totalup bond0}
+${offset 10}${upspeedgraph bond0 15,200 4B1B0C FF5C2B 100 -l}
+${goto 15}${voffset 5}${color2}${font sans-serif:size=12}${alignc}WAN ADDRESS:${font}${color}${voffset 5}
+${goto 15}${execi 3600 wget -q -O - checkip.dyndns.org | sed -e 's/[^[:digit:]\|.]//g'}
+
+${goto 15}${voffset 5}${color2}${font sans-serif:size=12}${alignc}LAN ADDRESS:${font}${color}${voffset 5}
+${goto 15}${addr bond0}
+
+${goto 15}${voffset 5}${color2}${font sans-serif:size=12}${alignc}PORTS:${font}${color}${voffset 5}
+${goto 15}${color1}Inbound Ports:${color}${goto 130}${tcp_portmon 1 32767 count}
+${goto 15}${color1}Outbound Ports:${color}${goto 130}${tcp_portmon 32768 61000 count}
+
+${goto 15}${color1}IP Address:
+${color}${goto 15}${tcp_portmon 1 65535 rip  0}
+${goto 15}${tcp_portmon 1 65535 rip  1}
+${goto 15}${tcp_portmon 1 65535 rip  2}
+${goto 15}${tcp_portmon 1 65535 rip  3}
+${goto 15}${tcp_portmon 1 65535 rip  4}
+${goto 15}${tcp_portmon 1 65535 rip  5}
+${goto 15}${tcp_portmon 1 65535 rip  6}
+${goto 15}${tcp_portmon 1 65535 rip  7}
+
+]];

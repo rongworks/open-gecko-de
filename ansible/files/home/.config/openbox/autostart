@@ -21,7 +21,7 @@ nm-applet &
 tint2 -c $HOME/.config/tint2/tint2rc &
 synapse &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-sh .conky/conky-startup.sh &
+sh $HOME/.config/conky/conky-startup.sh &
 tilix &
 pnmixer &
 ~/.fehbg &

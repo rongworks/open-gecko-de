@@ -39,9 +39,7 @@
       state: directory
     with_items:
       - "{{ home_folder }}/.local/share/applications"
-      - "/usr/share/xsessions"
-      - "{{ home_folder }}/.config"
-    become: true
+    #  - "/usr/share/xsessions"
 
   - name: Install yay (skip when installed)
     shell:
