@@ -1,68 +1,56 @@
 #!/bin/env ruby
 
-module Installer
-  attr_accessor :commands, :infos
+class Installer
+  #attr_accessor :commands, :infos
 
-  def initialize
-    self.commands = []
-    self.infos = []
+  # This will install Open Gecko to your local Machine
+  # args:
+  # * ladida
+  # * ladida2
+  def install(args)
+    puts "Installing -- TODO: Not implemented"
+    puts "TODO: Run ansible"
   end
 
-  def command(name,description,&block)
-    commands << {name:name.to_s,description:description,block:block}
+  # Install to virtual Machine
+  # Run vagrant and provision with ansible
+  def vm_install(args)
+    puts "Installing to Varant VM (Virtualbox) -- TODO: Check for Vagrant/Virtualbox"
+    success = system("vagrant up --provision")
+    puts "Succesfully installed Open Gecko to Vagrant VM" if success
   end
 
-  def description(name, &block)
-    infos << {name:name, block: block}
+  # Here to help
+  def help(args)
+    opts = parse_options(args)
+    command = opts[:sub_command] || ''
+    puts "Help for: #{command}"
+    puts "No command given" if command.length < 1
+    topic = list.include?(command.to_sym) ? "\##{command}":''
+    system('rdoc -r -o ri_docs')
+    system("ri -d ri_docs Installer#{topic}")
   end
 
-  def command_names
-    commands.collect {|c| c[:name]}
+  private
+
+  def list
+    self.class.instance_methods(false)
   end
 
-  def execute(name)
-    call_item(name,@commands)
+  def parse_options(options_arr)
+    opts = { command: options_arr[0] }
+    opts[:sub_command] = options_arr[1] unless options_arr.length < 2
+    return opts
   end
-
-  def describe(name)
-    call_item(name,@infos)
-  end
-
-  def call_item(name, collection)
-    item = get_item(name.to_s,collection)
-    if item.nil?
-      puts "#{name} not found in #{command_names}"
-    else
-      item[:block].call
-    end
-  end
-
-  def get_item(name, collection)
-    c = collection.select {|c| c[:name] == name}.first
-    return c
-  end
-
 end
 
-#installer = Installer.new
+installer = Installer.new
+commands = Installer.instance_methods(false)
+command = ARGV[0].to_sym
 
-include Installer
-initialize
-
-command :help, 'Show help' do
-  puts "I am the help command"
+if commands.include?(command)
+  installer.send(command, ARGV)
+else
+  puts "Command #{command} not recognized, commands: #{commands} \n run open-gecko.rb help <command> to learn more"
 end
-
-description :help do
-  puts "I am the description of help"
-end
-
-command :install, 'Install' do
-  puts "Something else"
-end
-
-command :update, 'Update' do
-  puts "update"
-end
-
-execute ARGV[0]
+#execute ARGV[0]
