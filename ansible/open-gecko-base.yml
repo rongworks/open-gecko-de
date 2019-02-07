@@ -77,8 +77,9 @@
 
   - name: Remove deselected configs
     shell: /bin/rm -rf "{{ item.config }}"
-    when: item.selected|bool == false and item.config is defined
+    when: item.selected|bool == false and item.config is defined and overwrite == true
     with_items: "{{ open_gecko_packages }}"
+
   #- name: Sync user configs
   #  vars:
   #    conf_path: "{{ item.config|replace('$HOME', '')|replace('~/', '')|regex_replace('(\/\\w+)$','\\1\/') }}" #regex_replace fails for files
