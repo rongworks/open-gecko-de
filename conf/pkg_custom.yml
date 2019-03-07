@@ -1,0 +1,295 @@
+---
+open_gecko_packages:
+- name: xorg-server
+  repository: pacman
+  category: system
+  url: http://xorg.freedesktop.org
+  info: Xorg X server
+  selected: true
+- name: yaourt
+  repository: pacman
+  category: system
+  url: https://github.com/archlinuxfr/yaourt
+  info: A pacman wrapper with extended features and AUR support
+  selected: true
+- name: xorg-server-common
+  repository: pacman
+  category: system
+  url: http://xorg.freedesktop.org
+  info: Xorg server common files
+  selected: true
+- name: lightdm
+  repository: pacman
+  category: system
+  url: https://www.freedesktop.org/wiki/Software/LightDM/
+  info: Lightweight Siplay Manager
+  selected: true
+- name: lightdm-gtk-greeter
+  repository: pacman
+  category: system
+  url: ''
+  info: Greeter for LightDM
+  selected: true
+- name: openbox
+  repository: pacman
+  category: system
+  url: https://openbox.org
+  info: Openbox window manager
+  config: "~/.config/openbox"
+  selected: true
+- name: compton
+  repository: pacman
+  category: system
+  url: https://github.com/chjj/compton
+  info: X compositor
+  config: "~/.config/compton.conf"
+  selected: true
+- name: arc-gtk-theme
+  repository: pacman
+  category: system
+  url: ''
+  info: Arc Theme
+  selected: true
+- name: arc-icon-theme
+  repository: pacman
+  category: system
+  url: ''
+  info: Arc icons
+  selected: true
+- name: obkey
+  repository: pacman
+  category: system
+  url: ''
+  info: Graphical Shortcut Manager
+  selected: true
+- name: gtk2-perl
+  repository: pacman
+  category: system
+  url: ''
+  info: ''
+  selected: true
+- name: obmenu3
+  repository: yaourt
+  category: system
+  url: ''
+  info: Openbox Menu Editor
+  selected: true
+- name: obmenu-generator
+  repository: yaourt
+  category: system
+  url: ''
+  info: Menu generator for Openbox
+  config: "~/.config/obmenu-generator"
+  selected: true
+- name: oblogout
+  repository: pacman
+  category: system
+  url: ''
+  info: Logout function for Openbox
+  config: "~/.config/themes"
+  selected: true
+- name: obconf
+  repository: pacman
+  category: system
+  url: ''
+  info: Graphical Configuration for Openbox
+  config: "~/.themes"
+  selected: true
+- name: lightdm-gtk-greeter-settings
+  repository: pacman
+  category: system
+  url: ''
+  info: ladida
+  selected: true
+- name: lxappearance
+  repository: pacman
+  category: system
+  url: ''
+  info: ladida
+  config: "~/.config/gtk-2.0"
+  selected: false
+- name: lxappearance-obconf-gtk3
+  repository: pacman
+  category: system
+  url: ''
+  info: ladida
+  config: "~/.config/gtk-3.0"
+  selected: true
+- name: polkit
+  repository: pacman
+  category: system
+  url: ''
+  info: ladida
+  selected: true
+- name: automake
+  repository: pacman
+  category: system
+  url: http://www.gnu.org/software/automake
+  info: A GNU tool for automatically creating Makefiles
+  selected: true
+- name: polkit-gnome
+  repository: pacman
+  category: system
+  url: ''
+  info: ladida
+  selected: true
+- name: gksu
+  repository: pacman
+  category: system
+  url: ''
+  info: ladida
+  selected: true
+- name: tilix
+  repository: pacman
+  category: apps
+  url: ''
+  info: ladida
+  selected: true
+- name: beaver
+  repository: pacman
+  category: apps
+  url: ''
+  info: ladida
+  selected: true
+- name: keepassxc
+  repository: pacman
+  category: security
+  url: https://keepassxc.org/
+  info: Cross-platform community-driven port of Keepass password manager
+  selected: true
+  config: "~/.config/keepassxc"
+- name: pamac
+  repository: pacman
+  category: apps
+  url: ''
+  info: Graphical package Manager
+  selected: true
+- name: tmux
+  repository: pacman
+  category: apps
+  url: ''
+  info: ladida
+  selected: true
+- name: pcmanfm-gtk3
+  repository: pacman
+  category: system
+  url: ''
+  info: ''
+  config: "~/.config/pcmanfm"
+  selected: true
+- name: conky
+  repository: pacman
+  category: apps
+  url: ''
+  config: "~/.conky"
+  info: ''
+  selected: true
+- name: conky-manager
+  repository: pacman
+  category: apps
+  url: ''
+  info: ''
+  selected: true
+- name: networkmanager
+  repository: pacman
+  category: system
+  url: ''
+  info: Network manager and user Applications
+  selected: true
+- name: network-manager-applet
+  repository: pacman
+  category: widgets
+  url: ''
+  info: Applet for managing networks
+  selected: true
+- name: rofi
+  repository: pacman
+  category: system
+  url: ''
+  info: A window switcher, application launcher and dmenu replacement
+  selected: true
+- name: synapse
+  repository: pacman
+  category: system
+  url: ''
+  info: AppFinder and Launcher
+  config: "~/.config/synapse"
+  selected: true
+- name: tint2
+  repository: pacman
+  category: system
+  url: ''
+  info: Leightweight Panel
+  config: "~/.config/tint2"
+  selected: true
+- name: jgmenu
+  repository: pacman
+  category: system
+  url: ''
+  info: Small X11 menu intended to be used with openbox and tint2
+  selected: true
+- name: calcurse
+  repository: pacman
+  category: core
+  url: http://calcurse.org/
+  info: Terminal calendar app
+  selected: true
+- name: viewnior
+  repository: pacman
+  category: apps
+  url: ''
+  info: Leightweight Image viewer
+  selected: true
+- name: xdotool
+  repository: pacman
+  category: system
+  url: ''
+  info: Commandline X11 Automation Tool
+  selected: true
+- name: pnmixer
+  repository: yaourt
+  category: system
+  config: "~/.config/pnmixer/"
+  url: ''
+  info: GTK volume mixer applet that runs in the system tray.
+  selected: true
+- name: neap-hotkey
+  repository: yaourt
+  category: system
+  info: A simple pager that runs in the notification area / systray with hotkey support
+  url: https://github.com/10sr/neap
+  config: "~/.neaprc"
+  selected: true
+- name: parcellite
+  repository: pacman
+  category: apps
+  url: ''
+  info: Leightweight Clipboard Manager
+  selected: true
+- name: zsh
+  repository: pacman
+  category: apps
+  url: ''
+  info: A very advanced and programmable command interpreter (shell) for UNIX
+  config: "~/.zshrc"
+  selected: true
+- name: python-psutil
+  repository: pacman
+  category: apps
+  url: ''
+  info: A cross-platform process and system utilities module for python
+  selected: true
+- name: feh
+  repository: pacman
+  category: system
+  url: ''
+  config: "~/.fehbg"
+  info: Fast and light imlib2-based image viewer
+  selected: true
+- name: zenity
+  repository: pacman
+  category: system
+  url: ''
+  info: Display graphical dialog boxes from shell scripts
+  selected: true
+- :name: firefox
